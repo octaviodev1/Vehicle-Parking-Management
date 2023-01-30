@@ -1,0 +1,18 @@
+* {
+  font-family: sans-serif;
+}
+
+.section {
+  display: none;
+}
+.active {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+.hide {
+  display: none;
+}
