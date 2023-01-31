@@ -49,7 +49,7 @@ const setCurrentActivePage = () => {
 
 const hideAllSections = () => {
   $(".section").removeClass("active");
-  $(".section").css("color:black");
+  $(".section").css("display: none");
 };
 
 const onApplyHashToCurrentRouteHandler = (ref) => {

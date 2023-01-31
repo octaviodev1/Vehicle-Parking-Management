@@ -15,27 +15,57 @@
   </head>
   <body>
     <section class="section" id="home-page">
-      <div class="container-xxl">
-        <div class="row">
+      <nav class="navbar navbar-expand-lg home-navbar py-4">
+        <div class="container-fluid">
           <button class="btn-link hide" data-route="/index.html#home">
             Home
           </button>
-          <div class="col-lg-10 float-start">
-            <h1>VEHICLE PARKING MANAGEMENT SYSTEM</h1>
+          <div>
+            <h1 class="navbar-brand text-white fw-bold fs-2">
+              VEHICLE PARKING MANAGEMENT SYSTEM
+            </h1>
           </div>
-          <div class="col-lg-1 float-end">
-            <button class="btn-link" data-route="/index.html#adminLogin">
-              Admin
+
+          <div>
+            <button
+              class="btn-link custom-btn-home fw-bold fs-3 pe-5"
+              data-route="/index.html#adminLogin"
+            >
+              ADMIN
             </button>
-          </div>
-          <div class="col-lg-1 float-end">
-            <button class="btn-link" data-route="/index.html#userLogin">
-              User
+
+            <button
+              class="btn-link custom-btn-home fw-bold fs-3"
+              data-route="/index.html#userLogin"
+            >
+              USER
             </button>
           </div>
         </div>
-        <div class="row">Example</div>
-        <div class="row">Example</div>
+      </nav>
+
+      <div class="body-home text-white fw-bold text-center">
+        <img
+          src="/home-image.png"
+          alt="parking"
+          class="rounded mx-auto d-block"
+        />
+        <h1 class="title-home fw-bold">VEHICLE PARKING MANAGEMENT SYSTEM</h1>
+        <div>
+          <i
+            class="fa-solid fa-slash fa-rotate-by fa-2xl"
+            style="--fa-rotate-angle: 142deg"
+          ></i>
+          <i class="fa-solid fa-star fa-2xl star-icon-home"></i>
+          <i
+            class="fa-solid fa-slash fa-rotate-by fa-2xl"
+            style="--fa-rotate-angle: 142deg"
+          ></i>
+        </div>
+      </div>
+
+      <div class="body-footer">
+        <h3 class="text-white text-center">Vehicle Parking Management System @ 2023</h3>
       </div>
     </section>
 
@@ -59,4 +89,8 @@
   ></script>
   <script src="https://cdn.jsdelivr.net/npm/jqueryrouter@2.2.11/dist/js/jquery.router.min.js"></script>
   <script src="index.js" type="module"></script>
+  <script
+    src="https://kit.fontawesome.com/e76b48df6f.js"
+    crossorigin="anonymous"
+  ></script>
 </html>
