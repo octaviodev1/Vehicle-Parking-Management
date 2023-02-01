@@ -11,7 +11,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="app.css" />
   </head>
   <body>
     <section class="section" id="home-page">
@@ -64,17 +64,125 @@
         </div>
       </div>
 
-      <div class="body-footer">
-        <h3 class="text-white text-center">Vehicle Parking Management System @ 2023</h3>
+      <div class="bodyHome-footer text-center">
+        <h3 class="text-white">Vehicle Parking Management System @ 2023</h3>
       </div>
     </section>
 
     <section class="section" id="adminLogin-page">
-      <p>Admin</p>
+      <div
+        class="body-adminLogin mh-100 mw-100 vh-100 d-flex justify-content-center pt-5"
+      >
+        <div class="formContainer-adminLogin">
+          <h1 class="text-white text-center pz-5">
+            Vehicle Parking Management System
+          </h1>
+          <div class="form-adminLogin bg-white rounded p-4">
+            <label for="userName-adminLogin" class="text-black-50 form-label"
+              >USER NAME</label
+            ><br />
+            <input
+              type="text"
+              class="w-100 form-control"
+              class="w-100"
+              id="userName-adminLogin"
+              placeholder="Username"
+            />
+            <span
+              class="error form-text my-5 text-danger"
+              id="errorUserName-adminLogin"
+            ></span>
+            <br />
+
+            <label for="password-adminLogin" class="text-black-50 form-label"
+              >PASSWORD</label
+            ><br />
+            <input
+              type="text"
+              class="w-100 form-control"
+              id="password-adminLogin"
+              placeholder="Password"
+            />
+            <span
+              class="error form-text my-5 text-danger"
+              id="errorPassword-adminLogin"
+            >
+            </span>
+
+            <div class="d-flex justify-content-end">
+              <button class="btnRemoveDecoration text-danger">
+                Forgotten Password?
+              </button>
+            </div>
+            <div class="d-flex flex-column">
+              <button class="btn btn-success">SIGN IN</button>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button
+                class="btn-link pt-3 btnRemoveDecoration text-danger"
+                data-route="/index.html#home"
+              >
+                Home
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="userLogin-page">
-      <p>User</p>
+      
+
+
+      <div
+        class="body-userLogin mh-100 mw-100 vh-100 d-flex justify-content-center pt-5"
+      >
+        <div class="formContainer-userLogin">
+          <h1 class="text-white text-center pz-5">
+            VPMS!! Sign in
+          </h1>
+          <div class="form-userLogin bg-white rounded p-4">
+            <label for="userName-userLogin" class="text-black-50 form-label"
+              >Contact Number</label
+            ><br />
+            <input
+              type="text"
+              class="w-100 form-control"
+              class="w-100"
+              id="userName-userLogin"
+              placeholder="Contact Number"
+            />
+            <span
+              class="error form-text my-5 text-danger"
+              id="errorUserName-userLogin"
+            ></span>
+            <br />
+
+            <div class="d-flex justify-content-end">
+              <button class="btnRemoveDecoration text-danger">
+                Forgotten Password?
+              </button>
+            </div>
+            <div class="d-flex flex-column">
+              <button class="btn btn-success">SIGN IN</button>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button
+                class="btn-link pt-3 btnRemoveDecoration text-danger"
+                data-route="/index.html#home"
+              >
+                Home
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+
     </section>
   </body>
   <script
