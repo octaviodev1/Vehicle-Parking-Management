@@ -17,7 +17,7 @@
     <section class="section" id="home-page">
       <nav class="navbar navbar-expand-lg home-navbar py-4">
         <div class="container-fluid">
-          <button class="btn-link hide" data-route="/index.html#home">
+          <button class="btn-linkRouter hide" data-route="/index.html#home">
             Home
           </button>
           <div>
@@ -28,14 +28,14 @@
 
           <div>
             <button
-              class="btn-link custom-btn-home fw-bold fs-3 pe-5"
+              class="btn-linkRouter custom-btn-home fw-bold fs-3 pe-5"
               data-route="/index.html#adminLogin"
             >
               ADMIN
             </button>
 
             <button
-              class="btn-link custom-btn-home fw-bold fs-3"
+              class="btn-linkRouter custom-btn-home fw-bold fs-3"
               data-route="/index.html#userLogin"
             >
               USER
@@ -115,12 +115,17 @@
               </button>
             </div>
             <div class="d-flex flex-column">
-              <button class="btn btn-success">SIGN IN</button>
+              <button
+                class="btn-linkRouter btn btn-success"
+                data-route="/index.html#dashboardAdmin"
+              >
+                SIGN IN
+              </button>
             </div>
 
             <div class="d-flex justify-content-end">
               <button
-                class="btn-link pt-3 btnRemoveDecoration text-danger"
+                class="btn-linkRouter pt-3 btnRemoveDecoration text-danger"
                 data-route="/index.html#home"
               >
                 Home
@@ -132,16 +137,11 @@
     </section>
 
     <section class="section" id="userLogin-page">
-      
-
-
       <div
         class="body-userLogin mh-100 mw-100 vh-100 d-flex justify-content-center pt-5"
       >
         <div class="formContainer-userLogin">
-          <h1 class="text-white text-center pz-5">
-            VPMS!! Sign in
-          </h1>
+          <h1 class="text-white text-center pz-5">VPMS!! Sign in</h1>
           <div class="form-userLogin bg-white rounded p-4">
             <label for="userName-userLogin" class="text-black-50 form-label"
               >Contact Number</label
@@ -170,7 +170,7 @@
 
             <div class="d-flex justify-content-end">
               <button
-                class="btn-link pt-3 btnRemoveDecoration text-danger"
+                class="btn-linkRouter pt-3 btnRemoveDecoration text-danger"
                 data-route="/index.html#home"
               >
                 Home
@@ -179,10 +179,194 @@
           </div>
         </div>
       </div>
-      
+    </section>
 
+    <section class="section vh-100" id="dashboardAdmin-page">
+      <div class="container-fluid row d-flex flex-row vh-100 mx-0">
+        <div class="col-12 container-fluid">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0">
+              <a
+                class="navbar-brand btn-linkRouter siderbarTitle fs-1 px-4"
+                data-route="/index.html#dashboardAdmin"
+                >Admin</a
+              >
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+            </div>
+          </nav>
+        </div>
 
+        <div class="col-2 d-flex flex-column z-3 sidebarNav shadow px-0">
+          <ul class="list-unstyled">
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-info bg-light py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-solid fa-laptop px-4 py-3"></i>Dashboard</a
+              >
+            </li>
 
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center text-body-tertiary border-0 collapsed navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#vehicleCategory-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-table-cells px-4 py-3"></i>Vehicle
+                Category
+              </button>
+              <div class="collapse" id="vehicleCategory-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                    >
+                      <i class="fa-solid fa-table-cells px-4 py-1"></i>Add
+                      Category
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                    >
+                      <i class="fa-solid fa-table-cells px-4 py-1"></i>Manage
+                      Category
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-regular fa-envelope px-4 py-3"></i>Add Vehicle</a
+              >
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center border-0 collapsed text-body-tertiary navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#manageVehicle-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-grip px-4 py-3"></i>Manage Vehicle
+              </button>
+              <div class="collapse" id="manageVehicle-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Manage In
+                      Vehicle
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Manage Out
+                      Vehicle
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center border-0 collapsed text-body-tertiary navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#reports-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-grip px-4 py-3"></i>Reports
+              </button>
+              <div class="collapse" id="reports-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Between Dates
+                      Reports
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-solid fa-magnifying-glass px-4 py-3"></i>Search
+                Vehicle</a
+              >
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-regular fa-user px-4 py-3"></i>Reg Users</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-10 dashboard-background px-0 customHeightDashboard">
+          <div class="row w-100 mw-100 m-0">
+            <div class="customColDashboard shadow my-5 mx-5 p-5 bg-white">
+              <div class="row">
+                <i class="fa-solid fa-car fa-4x greenColorDashboardElement col"></i>
+                <div class="col">
+                  <p class="">0</p>
+                  <p class="text-body-tertiary">Today Vehicle Entries</p>
+                </div>
+              </div>
+            </div>
+            <div class="customColDashboard shadow my-5 p-5 bg-white">
+              
+              <p>0</p>
+              <p class="text-body-tertiary">Yesterday Vehicle Entries</p>
+            </div>
+            <div class="customColDashboard shadow my-5 mx-5 p-5 bg-white">
+              <p>0</p>
+              <p class="text-body-tertiary">Last 7 days Vehicle Entries</p>
+            </div>
+            <div class="customColDashboard shadow my-5 p-5 bg-white">
+              <p>0</p>
+              <p class="text-body-tertiary">Total Vehicle Entries</p>
+            </div>
+          </div>
+
+          <div class="row m-0">
+            <div class="customColDashboard shadow mb-4 mx-5 p-5 bg-white">
+              <p>0</p>
+              <p class="text-body-tertiary">Total Registered Users</p>
+            </div>
+            <div class="customColDashboard shadow mb-4 p-5 bg-white">
+              <p>0</p>
+              <p class="text-body-tertiary">Listed Categories</p>
+            </div>
+          </div>
+
+          <div class="row w-100 mw-100 m-0">
+            <div
+              class="customColFooterDashboard bg-white my-5 mx-5 p-5 text-body-tertiary"
+            >
+              <p class="customMarginFooterDashboard">
+                Vehicle Parking Management System
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </body>
   <script

@@ -2,6 +2,14 @@
   font-family: sans-serif;
 }
 
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+}
+
 .section {
   display: none;
 }
@@ -17,7 +25,32 @@ ul {
   display: none;
 }
 
-/* Home Page Css */
+.btn {
+  --bs-btn-border-radius: 0;
+}
+.container-fluid {
+  padding: 0;
+}
+
+.customColDashboard {
+  flex: 0 0 auto;
+  width: 21%;
+}
+
+.customColFooterDashboard {
+  flex: 0 0 auto;
+  width: 93%;
+}
+
+.customMarginFooterDashboard {
+  margin-left: 11rem !important;
+}
+
+.customHeightDashboard {
+  height: 60% !important;
+}
+
+/* Home Page */
 .home-navbar {
   background-color: rgba(42, 59, 79, 255);
   padding-left: 5vw;
@@ -52,7 +85,7 @@ ul {
   padding-bottom: 4.35vh;
 }
 
-/* Admin Login Page Css */
+/* Admin Login Page */
 .body-adminLogin {
   background-color: rgba(51, 56, 65, 255);
 }
@@ -61,7 +94,7 @@ ul {
   width: 33vw;
 }
 
-.btnRemoveDecoration{
+.btnRemoveDecoration {
   border: none;
   background: none;
   text-decoration: none;
@@ -76,6 +109,44 @@ ul {
   width: 33vw;
 }
 
+/* Admin Page */
+.adminSidebar {
+  width: 280px;
+}
 
+.siderbarTitle {
+  color: rgba(1, 194, 148, 255);
+  font-weight: 900;
+}
 
+.navElement:hover {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-info-rgb), var(--bs-text-opacity)) !important;
+}
+
+.dashboard-background {
+  background-color: rgba(240, 241, 246, 255);
+}
+
+.sidebarNav {
+  height: 91%;
+}
+
+.greenColorDashboardElement {
+  color: rgba(54, 192, 161, 255);
+}
+
+.purpleColorDashboardElement {
+  color: rgba(170, 151, 207, 255);
+}
+
+.blueColorDashboardElement {
+  color: rgba(7, 161, 232, 255);
+}
+
+.orangeColorDashboardElement {
+  color: rgba(252,146,120,255)
+}

@@ -19,7 +19,7 @@ const onPageWithHashLoaded = () => {
 };
 
 // ROUTER
-$(".btn-link").on("click", function (e) {
+$(".btn-linkRouter").on("click", function (e) {
   setCurrentRouteFromDataBtn($(this));
   onChangeRoute($(this));
 });
