@@ -17,6 +17,10 @@ body {
   display: block;
 }
 
+th {
+  font-weight: normal;
+}
+
 ul {
   list-style: none;
 }
@@ -32,22 +36,10 @@ ul {
   padding: 0;
 }
 
-.customColDashboard {
-  flex: 0 0 auto;
-  width: 21%;
-}
-
-.customColFooterDashboard {
-  flex: 0 0 auto;
-  width: 93%;
-}
-
-.customMarginFooterDashboard {
-  margin-left: 11rem !important;
-}
-
-.customHeightDashboard {
-  height: 60% !important;
+.btnRemoveDecoration {
+  border: none;
+  background: none;
+  text-decoration: none;
 }
 
 /* Home Page */
@@ -94,12 +86,6 @@ ul {
   width: 33vw;
 }
 
-.btnRemoveDecoration {
-  border: none;
-  background: none;
-  text-decoration: none;
-}
-
 /* User Login Page Css */
 .body-userLogin {
   background-color: rgba(51, 56, 65, 255);
@@ -109,7 +95,7 @@ ul {
   width: 33vw;
 }
 
-/* Admin Page */
+/* Dashboard Admin Page */
 .adminSidebar {
   width: 280px;
 }
@@ -148,5 +134,69 @@ ul {
 }
 
 .orangeColorDashboardElement {
-  color: rgba(252,146,120,255)
+  color: rgba(252, 146, 120, 255);
+}
+
+.customColDashboard {
+  flex: 0 0 auto;
+  width: 21%;
+}
+
+.customColFooterDashboard {
+  flex: 0 0 auto;
+  width: 93%;
+}
+
+.customMarginFooterDashboard {
+  margin-left: 11rem !important;
+}
+
+.customHeightDashboard {
+  height: 60% !important;
+}
+
+/* Vehicle Add Category */
+.customMarginLabelVehicleAddCategory {
+  margin-right: 15rem !important;
+}
+
+.customColVehicleAddCategory {
+  flex: 0 0 auto;
+  width: 93%;
+}
+
+/* Vehicle Manage Category */
+.customHeightVehicleManageCategory {
+  height: 91% !important;
+}
+
+.customFooterHeightVehicleManageCateogry {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 20rem;
+}
+
+/* Add Vehicle */
+select {
+  height: 34px;
+}
+
+.customHeightAddVehicle {
+  height: 91% !important;
+}
+
+.customMarginLabelAddVehicle {
+  margin-right: 15rem !important;
+}
+
+table.table-fit {
+  width: 100% !important;
+  table-layout: auto !important;
+}
+table.table-fit thead th {
+  width: 25% !important;
+}
+table.table-fit tbody td {
+  width: 75% !important;
 }
