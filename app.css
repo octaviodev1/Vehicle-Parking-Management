@@ -190,13 +190,36 @@ select {
   margin-right: 15rem !important;
 }
 
-table.table-fit {
+table.table-fitAddVehicle {
   width: 100% !important;
   table-layout: auto !important;
 }
-table.table-fit thead th {
+table.table-fitAddVehicle thead th {
   width: 25% !important;
 }
-table.table-fit tbody td {
+table.table-fitAddVehicle tbody td {
   width: 75% !important;
+}
+
+/* View Vehicle */
+table.table-fitViewVehicle {
+  width: 100% !important;
+  table-layout: auto !important;
+}
+table.table-fitViewVehicle thead th {
+  width: 50% !important;
+}
+table.table-fitViewVehicle tbody td {
+  width: 50% !important;
+}
+
+table.table-fitUpdateViewVehicle {
+  width: 100% !important;
+  table-layout: auto !important;
+}
+table.table-fitUpdateViewVehicle thead th {
+  width: 40% !important;
+}
+table.table-fitUpdateViewVehicle tbody td {
+  width: 60% !important;
 }

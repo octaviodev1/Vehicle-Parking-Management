@@ -84,7 +84,6 @@
             <input
               type="text"
               class="w-100 form-control"
-              class="w-100"
               id="userName-adminLogin"
               placeholder="Username"
             />
@@ -800,9 +799,9 @@
               <table id="" class="w-100">
                 <thead class="border-top border-bottom">
                   <tr>
-                    <th class="py-3 ps-3">S.NO</th>
-                    <th class="py-3 ps-3">Category</th>
-                    <th class="py-3 ps-3">Action</th>
+                    <th class="py-3 ps-3 fw-bold">S.NO</th>
+                    <th class="py-3 ps-3 fw-bold">Category</th>
+                    <th class="py-3 ps-3 fw-bold">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -810,53 +809,17 @@
                     <td class="pt-3 pb-4 ps-3">1</td>
                     <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
                     <td class="pt-3 pb-4 ps-3">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </td>
-                  </tr>
-
-                  <tr class="border-top border-2">
-                    <td class="pt-3 pb-4 ps-3">1</td>
-                    <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
-                    <td class="pt-3 pb-4 ps-3">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </td>
-                  </tr>
-
-                  <tr class="border-top border-2">
-                    <td class="pt-3 pb-4 ps-3">1</td>
-                    <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
-                    <td class="pt-3 pb-4 ps-3">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </td>
-                  </tr>
-
-                  <tr class="border-top border-2">
-                    <td class="pt-3 pb-4 ps-3">1</td>
-                    <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
-                    <td class="pt-3 pb-4 ps-3">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </td>
-                  </tr>
-
-                  <tr class="border-top border-2">
-                    <td class="pt-3 pb-4 ps-3">1</td>
-                    <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
-                    <td class="pt-3 pb-4 ps-3">
-                      <button>Edit</button>
-                      <button>Delete</button>
-                    </td>
-                  </tr>
-
-                  <tr class="border-top border-2">
-                    <td class="pt-3 pb-4 ps-3">1</td>
-                    <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
-                    <td class="pt-3 pb-4 ps-3">
-                      <button>Edit</button>
-                      <button>Delete</button>
+                      <button
+                        class="btn-linkRouter text-white bg-primary rounded-1 border-0 py-2 px-3"
+                        data-route="/index.html#vehicleUpdateCategory"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        class="text-white bg-danger rounded-1 border-0 py-2 px-3"
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -867,6 +830,209 @@
           <div class="row mw-100 mx-0 customFooterHeightVehicleManageCateogry">
             <div
               class="customColFooterDashboard bg-white mx-5 mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
+            >
+              <p class="customMarginFooterDashboard mt-3">
+                Vehicle Parking Management System
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vh-100" id="vehicleUpdateCategory-page">
+      <div class="container-fluid row d-flex flex-row vh-100 mx-0">
+        <div class="col-12 container-fluid">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0">
+              <a
+                class="navbar-brand btn-linkRouter siderbarTitle fs-1 px-4"
+                data-route="/index.html#home"
+                >Admin</a
+              >
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-2 d-flex flex-column z-3 sidebarNav shadow px-0">
+          <ul class="list-unstyled">
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-info bg-light py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-solid fa-laptop px-4 py-3"></i>Dashboard</a
+              >
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center text-body-tertiary border-0 collapsed navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#vehicleCategory-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-table-cells px-4 py-3"></i>Vehicle
+                Category
+              </button>
+              <div class="collapse" id="vehicleCategory-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#vehicleAddCategory"
+                    >
+                      <i class="fa-solid fa-table-cells px-4 py-1"></i>Add
+                      Category
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#vehicleManageCategory"
+                    >
+                      <i class="fa-solid fa-table-cells px-4 py-1"></i>Manage
+                      Category
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#addVehicle"
+                ><i class="fa-regular fa-envelope px-4 py-3"></i>Add Vehicle</a
+              >
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center border-0 collapsed text-body-tertiary navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#manageVehicle-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-grip px-4 py-3"></i>Manage Vehicle
+              </button>
+              <div class="collapse" id="manageVehicle-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#manageInVehicle"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Manage In
+                      Vehicle
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#manageOutVehicle"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Manage Out
+                      Vehicle
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center border-0 collapsed text-body-tertiary navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#reports-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-grip px-4 py-3"></i>Reports
+              </button>
+              <div class="collapse" id="reports-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#dashboardAdmin"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Between Dates
+                      Reports
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#searchVehicle"
+                ><i class="fa-solid fa-magnifying-glass px-4 py-3"></i>Search
+                Vehicle</a
+              >
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-regular fa-user px-4 py-3"></i>Reg Users</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-10 dashboard-background px-0 customHeightDashboard">
+          <div class="row w-100 mw-100 m-0">
+            <div
+              class="customColVehicleAddCategory my-5 mx-5 px-5 py-3 bg-white rounded-top d-flex align-items-center"
+            >
+              <div class="me-auto fs-5"><p class="m-0">Dashboard</p></div>
+              <div>
+                <p class="m-0">
+                  <span class="text-body-tertiary">Dashboard / Category /</span>
+                  Update Category
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row customColVehicleAddCategory mw-100 ms-5 my-5 shadow">
+            <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
+              <p class="m-0 px-4 py-3">
+                <span class="fw-bold">Update</span> Category
+              </p>
+            </div>
+
+            <div class="w-100 bg-white rounded-bottom px-4 py-4">
+              <div class="col-12">
+                <label
+                  for="addVehicleCategory"
+                  class="customMarginLabelVehicleAddCategory"
+                  >Category Name</label
+                >
+                <input
+                  type="text"
+                  name="addVehicleCategory"
+                  id="addVehicleCategory"
+                  class="px-2 py-1 border border-1 border-dark-subtle rounded-1 col-9"
+                  placeholder="Vehicle Category"
+                />
+              </div>
+              <div class="row justify-content-center py-3">
+                <button
+                  class="w-auto bg-primary text-white rounded-1 border-0 py-1"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row w-100 mw-100 mx-0">
+            <div
+              class="customColFooterDashboard bg-white mx-5 mt-5 px-5 py-4 pb-5 text-body-tertiary"
             >
               <p class="customMarginFooterDashboard mt-3">
                 Vehicle Parking Management System
@@ -1028,7 +1194,7 @@
               <div class="me-auto fs-5"><p class="m-0">Dashboard</p></div>
               <div>
                 <p class="m-0">
-                  <span class="text-body-tertiary">Dashboard / Category /</span>
+                  <span class="text-body-tertiary">Dashboard / Vehicle /</span>
                   Add Vehicle
                 </p>
               </div>
@@ -1043,7 +1209,9 @@
             </div>
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
-              <table class="table table-fit table-borderless table-sm mb-0">
+              <table
+                class="table table-fitAddVehicle table-borderless table-sm mb-0"
+              >
                 <tbody>
                   <tr>
                     <th scope="row">Select</th>
@@ -1189,7 +1357,8 @@
 
               <div class="row justify-content-center mb-3">
                 <button
-                  class="w-auto bg-primary text-white rounded-1 border-0 py-1"
+                  class="btn-linkRouter w-auto bg-primary text-white rounded-1 border-0 py-1"
+                  data-route="/index.html#manageInVehicle"
                 >
                   Add
                 </button>
@@ -1351,6 +1520,395 @@
               >
             </li>
           </ul>
+        </div>
+
+        <div
+          class="col-10 dashboard-background px-0 customHeightVehicleManageCategory"
+        >
+          <div class="row w-100 mw-100 m-0">
+            <div
+              class="customColVehicleAddCategory my-5 mx-5 px-5 py-3 bg-white rounded-top d-flex align-items-center"
+            >
+              <div class="me-auto fs-5"><p class="m-0">Dashboard</p></div>
+              <div>
+                <p class="m-0">
+                  <span class="text-body-tertiary"
+                    >Dashboard / Manage Vehicle /</span
+                  >
+                  Manage Incoming Vehicle
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
+            <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
+              <p class="m-0 px-4 py-3">
+                <span class="fw-bold">Manage Incoming Vehicle</span>
+              </p>
+            </div>
+
+            <div class="w-100 bg-white rounded-bottom px-4 py-4">
+              <table id="" class="w-100">
+                <thead class="border-top border-bottom">
+                  <tr>
+                    <th class="py-3 ps-3 fw-bold">S.NO</th>
+                    <th class="py-3 ps-3 fw-bold">Parking Number</th>
+                    <th class="py-3 ps-3 fw-bold">Owner Name</th>
+                    <th class="py-3 ps-3 fw-bold">Vehicle Reg Number</th>
+                    <th class="py-3 ps-3 fw-bold">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-top border-2">
+                    <td class="pt-3 pb-4 ps-3">1</td>
+                    <td class="pt-3 pb-4 ps-3">45634563456</td>
+                    <td class="pt-3 pb-4 ps-3">ABDUL</td>
+                    <td class="pt-3 pb-4 ps-3">ES-23-51264</td>
+                    <td class="pt-3 pb-4 ps-3">
+                      <button
+                        class="btn-linkRouter text-white bg-primary rounded-1 border-0 py-2 px-3"
+                        data-route="/index.html#viewVehicleIncoming"
+                      >
+                        View
+                      </button>
+                      <button
+                        class="btn-linkRouter text-white bg-warning rounded-1 border-0 py-2 px-3"
+                        data-route="/index.html#"
+                      >
+                        Print
+                      </button>
+                      <button
+                        class="text-white bg-danger rounded-1 border-0 py-2 px-3"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mw-100 mx-0 customFooterHeightVehicleManageCateogry">
+            <div
+              class="customColFooterDashboard bg-white mx-5 mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
+            >
+              <p class="customMarginFooterDashboard mt-3">
+                Vehicle Parking Management System
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vh-100" id="viewVehicleIncoming-page">
+      <div class="container-fluid row d-flex flex-row vh-100 mx-0">
+        <div class="col-12 container-fluid">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0">
+              <a
+                class="navbar-brand btn-linkRouter siderbarTitle fs-1 px-4"
+                data-route="/index.html#home"
+                >Admin</a
+              >
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-2 d-flex flex-column z-3 px-0">
+          <ul class="list-unstyled">
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-info bg-light py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-solid fa-laptop px-4 py-3"></i>Dashboard</a
+              >
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center text-body-tertiary border-0 collapsed navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#vehicleCategory-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-table-cells px-4 py-3"></i>Vehicle
+                Category
+              </button>
+              <div class="collapse" id="vehicleCategory-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#vehicleAddCategory"
+                    >
+                      <i class="fa-solid fa-table-cells px-4 py-1"></i>Add
+                      Category
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#vehicleManageCategory"
+                    >
+                      <i class="fa-solid fa-table-cells px-4 py-1"></i>Manage
+                      Category
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#addVehicle"
+                ><i class="fa-regular fa-envelope px-4 py-3"></i>Add Vehicle</a
+              >
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center border-0 collapsed text-body-tertiary navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#manageVehicle-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-grip px-4 py-3"></i>Manage Vehicle
+              </button>
+              <div class="collapse" id="manageVehicle-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#manageInVehicle"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Manage In
+                      Vehicle
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#manageOutVehicle"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Manage Out
+                      Vehicle
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <button
+                class="btn px-0 py-1 dropdown-toggle btn-toggle d-inline-flex align-items-center border-0 collapsed text-body-tertiary navElement w-100"
+                data-bs-toggle="collapse"
+                data-bs-target="#reports-collapse"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-grip px-4 py-3"></i>Reports
+              </button>
+              <div class="collapse" id="reports-collapse">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      class="btn-linkRouter d-inline-flex text-decoration-none text-body-tertiary px-4 py-1 navElement w-100"
+                      data-route="/index.html#dashboardAdmin"
+                    >
+                      <i class="fa-solid fa-grip px-4 py-1"></i>Between Dates
+                      Reports
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#searchVehicle"
+                ><i class="fa-solid fa-magnifying-glass px-4 py-3"></i>Search
+                Vehicle</a
+              >
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#dashboardAdmin"
+                ><i class="fa-regular fa-user px-4 py-3"></i>Reg Users</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="col-10 dashboard-background px-0 customHeightVehicleManageCategory"
+        >
+          <div class="row w-100 mw-100 m-0">
+            <div
+              class="customColVehicleAddCategory my-5 mx-5 px-5 py-3 bg-white rounded-top d-flex align-items-center"
+            >
+              <div class="me-auto fs-5"><p class="m-0">Dashboard</p></div>
+              <div>
+                <p class="m-0">
+                  <span class="text-body-tertiary"
+                    >Dashboard / View Vehicle /</span
+                  >
+                  Incoming Vehicle
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row customColVehicleAddCategory mw-100 ms-5 mb-5 shadow">
+            <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
+              <p class="m-0 px-4 py-3">
+                <span class="fw-bold">View Incoming Vehicle</span>
+              </p>
+            </div>
+
+            <div class="w-100 bg-white rounded-bottom px-4 py-4">
+              <table
+                id=""
+                class="w-100 table table-bordered table-fitViewVehicle"
+              >
+                <tbody>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">Parking Number</th>
+                    <td>Example</td>
+                  </tr>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">Vehicle Category</th>
+                    <td>Example</td>
+                  </tr>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">
+                      Vehicle Company name
+                    </th>
+                    <td>Example</td>
+                  </tr>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">Registration Number</th>
+                    <td>Example</td>
+                  </tr>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">Owner name</th>
+                    <td>Example</td>
+                  </tr>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">
+                      Owner Contact Number
+                    </th>
+                    <td>Example</td>
+                  </tr>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">In Time</th>
+                    <td>Example</td>
+                  </tr>
+                  <tr>
+                    <th class="fw-bold p-3" scope="row">Status</th>
+                    <td>Example</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="dashboard-background">
+            <div class="row customColVehicleAddCategory mw-100 ms-5 mb-5">
+              <table
+                id=""
+                class="w-100 table table-borderless table-fitUpdateViewVehicle"
+              >
+                <tbody>
+                  <tr class="border-top border-2">
+                    <th class="fw-bold p-3" scope="row">Remark:</th>
+                    <td class="pt-3">
+                      <textarea
+                        class="w-100"
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="10"
+                      ></textarea>
+                    </td>
+                  </tr>
+                  <tr class="border-top">
+                    <th class="fw-bold p-3" scope="row">Parking Charge:</th>
+                    <td class="pt-2">
+                      <input type="text" class="w-100" id="" />
+                    </td>
+                  </tr>
+                  <tr class="border-top">
+                    <th class="fw-bold p-3" scope="row">Status:</th>
+                    <td class="py-3">
+                      <select class="w-100" name="viewIncomingVehicle">
+                        <option selected>Outgoing Vehicle</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-top">
+                      <button
+                        class="w-auto bg-primary text-white rounded-1 border-0 py-1"
+                      >
+                        Update
+                      </button>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="row mw-100 mx-0">
+                <div
+                  class="bg-white mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
+                >
+                  <p class="customMarginFooterDashboard mt-3">
+                    Vehicle Parking Management System
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="border-top border-2 col-12">
+                <label>Remark:</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+              </div>
+
+              <div class="border-top col-12">
+                <label class="customMarginLabelVehicleAddCategory">Parking Charge:</label>
+
+                <input type="text" class="col-9" id="" />
+              </div>
+
+              <div class="border-top  col-12">
+                <label>Status:</label>
+                <select class="" name="viewIncomingVehicle">
+                  <option selected>Outgoing Vehicle</option>
+                </select>
+              </div>
+
+              <div class="py-3 border-top">
+                <button
+                  class="w-auto bg-primary text-white rounded-1 border-0 py-1"
+                >
+                  Update
+                </button>
+              </div>
+
+              <div class="row mw-100 mx-0">
+                <div
+                  class="bg-white mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
+                >
+                  <p class="customMarginFooterDashboard mt-3">
+                    Vehicle Parking Management System
+                  </p>
+                </div>
+              </div> -->
+            </div>
+          </div>
         </div>
       </div>
     </section>
