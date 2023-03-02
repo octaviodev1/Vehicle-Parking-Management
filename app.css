@@ -223,3 +223,8 @@ table.table-fitUpdateViewVehicle thead th {
 table.table-fitUpdateViewVehicle tbody td {
   width: 60% !important;
 }
+
+/* Search Vehicle */
+.customHeightSearchVehicle{
+  height: 70% !important;
+}
