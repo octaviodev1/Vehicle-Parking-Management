@@ -159,6 +159,9 @@ ul {
 .customMarginLabelVehicleAddCategory {
   margin-right: 15rem !important;
 }
+.customMarginSpanVehicleAddCategory {
+  margin-left: 22.5rem !important;
+}
 
 .customColVehicleAddCategory {
   flex: 0 0 auto;
@@ -225,6 +228,39 @@ table.table-fitUpdateViewVehicle tbody td {
 }
 
 /* Search Vehicle */
-.customHeightSearchVehicle{
+.customHeightSearchVehicle {
   height: 70% !important;
+}
+/* Dashboard User */
+.customMarginFooterDashboardUser {
+  margin-left: 25rem !important;
+}
+
+.customColDashboardUser {
+  flex: 0 0 auto;
+  width: 94%;
+}
+
+.customFontSizeDashboardUser {
+  font-size: 55px;
+}
+
+/* Pagination Table Manage Vehicle Categories */
+#manageVehicleCategoriesTable_paginate > span > a {
+  color: black;
+  border: 0!important;
+  text-decoration: none;
+  border-radius: var(--bs-border-radius-sm) !important;
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-primary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  margin-right: 0.25rem!important;
 }

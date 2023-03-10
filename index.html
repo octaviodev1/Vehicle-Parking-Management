@@ -11,13 +11,19 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="app.css" />
   </head>
+
   <body>
     <section class="section" id="home-page">
       <nav class="navbar navbar-expand-lg home-navbar py-4">
         <div class="container-fluid">
-          <button class="btn-linkRouter hide" data-route="/index.html#home">
+          <button
+            id="btn-goToHome"
+            class="btn-linkRouter hide"
+            data-route="/index.html#home"
+          >
             Home
           </button>
           <div>
@@ -28,6 +34,7 @@
 
           <div>
             <button
+              id="btn-goToAdminLogin"
               class="btn-linkRouter custom-btn-home fw-bold fs-3 pe-5"
               data-route="/index.html#adminLogin"
             >
@@ -97,7 +104,7 @@
               >PASSWORD</label
             ><br />
             <input
-              type="text"
+              type="password"
               class="w-100 form-control"
               id="password-adminLogin"
               placeholder="Password"
@@ -114,12 +121,14 @@
               </button>
             </div>
             <div class="d-flex flex-column">
-              <button
-                class="btn-linkRouter btn btn-success"
-                data-route="/index.html#dashboardAdmin"
-              >
+              <button id="signIn-adminLogin" class="btn btn-success">
                 SIGN IN
               </button>
+              <button
+                id="btnToDashboardAdmin"
+                class="btn-linkRouter hide"
+                data-route="/index.html#dashboardAdmin"
+              ></button>
             </div>
 
             <div class="d-flex justify-content-end">
@@ -164,7 +173,12 @@
               </button>
             </div>
             <div class="d-flex flex-column">
-              <button class="btn btn-success">SIGN IN</button>
+              <button
+                class="btn-linkRouter btn btn-success"
+                data-route="/index.html#dashboardUser"
+              >
+                SIGN IN
+              </button>
             </div>
 
             <div class="d-flex justify-content-end">
@@ -174,6 +188,188 @@
               >
                 Home
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vh-100" id="dashboardUser-page">
+      <div class="container-fluid row d-flex flex-row vh-100 mx-0">
+        <div class="col-12 container-fluid border-bottom">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0">
+              <a
+                class="navbar-brand btn-linkRouter text-primary fs-4 fw-bold px-4"
+                data-route="/index.html#home"
+                >VPMS Users</a
+              >
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-2 d-flex flex-column z-3 sidebarNav shadow px-0">
+          <ul class="list-unstyled">
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-info bg-light py-1"
+                data-route="/index.html#dashboardUser"
+                ><i class="fa-solid fa-laptop px-4 py-3"></i>Dashboard</a
+              >
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#viewVehicleUser"
+                ><i class="fa-solid fa-truck px-4 py-3"></i>View Vehicle</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-10 px-0">
+          <div class="row w-100 mw-100 m-0">
+            <div
+              class="customColDashboardUser shadow my-5 mx-5 px-4 py-2 bg-white rounded"
+            >
+              <div>
+                <p
+                  class="greenColorDashboardElement customFontSizeDashboardUser"
+                >
+                  Welcome to panel !!
+                  <span id="dashboardUserName">User Name</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row w-100 mw-100 m-0 mt-5">
+            <div
+              class="customColFooterDashboard bg-white mx-5 px-5 py-4 pb-5 text-body-tertiary"
+            >
+              <p class="customMarginFooterDashboardUser mt-3">
+                Vehicle Parking Management System
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vh-100" id="viewVehicleUser-page">
+      <div class="container-fluid row d-flex flex-row vh-100 mx-0">
+        <div class="col-12 container-fluid border-bottom">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0">
+              <a
+                class="navbar-brand btn-linkRouter text-primary fs-4 fw-bold px-4"
+                data-route="/index.html#home"
+                >VPMS Users</a
+              >
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-2 d-flex flex-column z-3 sidebarNav shadow px-0">
+          <ul class="list-unstyled">
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-info bg-light py-1"
+                data-route="/index.html#dashboardUser"
+                ><i class="fa-solid fa-laptop px-4 py-3"></i>Dashboard</a
+              >
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#viewVehicleUser"
+                ><i class="fa-solid fa-truck px-4 py-3"></i>View Vehicle</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="col-10 dashboard-background px-0 customHeightVehicleManageCategory"
+        >
+          <div class="row w-100 mw-100 m-0">
+            <div
+              class="customColVehicleAddCategory my-5 mx-5 px-5 py-3 bg-white rounded-top d-flex align-items-center"
+            >
+              <div class="me-auto fs-5"><p class="m-0">Dashboard</p></div>
+              <div>
+                <p class="m-0">
+                  <span class="text-body-tertiary"
+                    >Dashboard / View Vehicle Parking Details /</span
+                  >
+                  View Vehicle Parking Details
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
+            <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
+              <p class="m-0 px-4 py-3">
+                <span class="fw-bold"
+                  >View Vehicle Parking Details (on the basis of Registered
+                  Mobile No)</span
+                >
+              </p>
+            </div>
+
+            <div class="w-100 bg-white rounded-bottom px-4 py-4">
+              <table class="w-100">
+                <thead class="border-top border-bottom">
+                  <tr>
+                    <th class="py-3 ps-3 fw-bold">S.NO</th>
+                    <th class="py-3 ps-3 fw-bold">Parking Number</th>
+                    <th class="py-3 ps-3 fw-bold">Owner Name</th>
+                    <th class="py-3 ps-3 fw-bold">Vehicle Reg Number</th>
+                    <th class="py-3 ps-3 fw-bold">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-top border-2">
+                    <td class="pt-3 pb-4 ps-3">1</td>
+                    <td class="pt-3 pb-4 ps-3">45634563456</td>
+                    <td class="pt-3 pb-4 ps-3">ABDUL</td>
+                    <td class="pt-3 pb-4 ps-3">ES-23-51264</td>
+                    <td class="pt-3 pb-4 ps-3">
+                      <button
+                        class="btn-linkRouter text-white bg-primary rounded-1 border-0 py-2 px-3"
+                        data-route="/index.html#viewVehicleIncoming"
+                      >
+                        View
+                      </button>
+                      <button
+                        class="btn-linkRouter bg-warning rounded-1 border-0 py-2 px-3"
+                        data-route="/index.html#"
+                      >
+                        Print
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mw-100 mx-0 customFooterHeightVehicleManageCateogry">
+            <div
+              class="customColFooterDashboard bg-white mx-5 mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
+            >
+              <p class="customMarginFooterDashboard mt-3">
+                Vehicle Parking Management System
+              </p>
             </div>
           </div>
         </div>
@@ -190,7 +386,12 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i
+                  id="btn-endSession"
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2"
+                ></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -435,7 +636,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -600,17 +803,27 @@
                 <input
                   type="text"
                   name="addVehicleCategory"
-                  id="addVehicleCategory"
-                  class="px-2 py-1 border border-1 border-dark-subtle rounded-1 col-9"
+                  id="input-addVehicleCategory"
+                  class="px-2 py-1 mb-2 border border-1 border-dark-subtle rounded-1 col-9"
                   placeholder="Vehicle Category"
                 />
+                <span
+                  id="errorAddVehicleCategory"
+                  class="customMarginSpanVehicleAddCategory error form-text my-5 text-danger hide"
+                ></span>
               </div>
               <div class="row justify-content-center py-3">
                 <button
+                  id="btn-addVehicleCategory"
                   class="w-auto bg-primary text-white rounded-1 border-0 py-1"
                 >
                   Add
                 </button>
+                <button
+                  id="btnToManageVehicleCategory"
+                  class="btn-linkRouter hide"
+                  data-route="/index.html#vehicleManageCategory"
+                ></button>
               </div>
             </div>
           </div>
@@ -638,7 +851,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -796,7 +1011,7 @@
             </div>
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
-              <table id="" class="w-100">
+              <table class="w-100" id="manageVehicleCategoriesTable">
                 <thead class="border-top border-bottom">
                   <tr>
                     <th class="py-3 ps-3 fw-bold">S.NO</th>
@@ -804,8 +1019,8 @@
                     <th class="py-3 ps-3 fw-bold">Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr class="border-top border-2">
+                <tbody id="manageVehicleCategoryTable">
+                  <!-- <tr class="border-top border-2">
                     <td class="pt-3 pb-4 ps-3">1</td>
                     <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
                     <td class="pt-3 pb-4 ps-3">
@@ -821,7 +1036,7 @@
                         Delete
                       </button>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -850,7 +1065,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -1007,15 +1224,13 @@
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
               <div class="col-12">
-                <label
-                  for="addVehicleCategory"
-                  class="customMarginLabelVehicleAddCategory"
+                <label for="" class="customMarginLabelVehicleAddCategory"
                   >Category Name</label
                 >
                 <input
                   type="text"
-                  name="addVehicleCategory"
-                  id="addVehicleCategory"
+                  name="updateCategoryName"
+                  id="updateCategoryName"
                   class="px-2 py-1 border border-1 border-dark-subtle rounded-1 col-9"
                   placeholder="Vehicle Category"
                 />
@@ -1053,7 +1268,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -1226,8 +1443,8 @@
                       </select>
                       <!-- <input
                         type="text"
-                        name="addVehicleCategory"
-                        id="addVehicleCategory"
+                        name=""
+                        id=""
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Select Category"
                       /> -->
@@ -1239,8 +1456,8 @@
                     <td>
                       <input
                         type="text"
-                        name="addVehicleCategory"
-                        id="addVehicleCategory"
+                        name="addVehicleCompany"
+                        id="addVehicleCompany"
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Vehicle Company"
                       />
@@ -1252,8 +1469,8 @@
                     <td>
                       <input
                         type="text"
-                        name="addVehicleCategory"
-                        id="addVehicleCategory"
+                        name="addVehicleRegistrarionNumber"
+                        id="addVehicleRegistrarionNumber"
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Registration Number"
                       />
@@ -1265,8 +1482,8 @@
                     <td>
                       <input
                         type="text"
-                        name="addVehicleCategory"
-                        id="addVehicleCategory"
+                        name="addVehicleOwnerName"
+                        id="addVehicleOwnerName"
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Owner Name"
                       />
@@ -1278,8 +1495,8 @@
                     <td>
                       <input
                         type="text"
-                        name="addVehicleCategory"
-                        id="addVehicleCategory"
+                        name="addVehicleOwnerContactNumber"
+                        id="addVehicleOwnerContactNumber"
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Owner Contact Number"
                       />
@@ -1290,23 +1507,23 @@
               <!-- <div class="col-12">
                 <div class="row">
                   <div class="col-2 customMarginLabelAddVehicle">
-                    <label for="addVehicleCategory" class="me-5 pb-4"
+                    <label for="" class="me-5 pb-4"
                       >Select</label
                     >
 
-                    <label for="addVehicleCategory" class="me-5 pb-4"
+                    <label for="" class="me-5 pb-4"
                       >Vehicle Company</label
                     >
 
-                    <label for="addVehicleCategory" class="me-5 pb-4"
+                    <label for="" class="me-5 pb-4"
                       >Registration Number</label
                     >
 
-                    <label for="addVehicleCategory" class="me-5 pb-4"
+                    <label for="" class="me-5 pb-4"
                       >Owner Name</label
                     >
 
-                    <label for="addVehicleCategory" class="me-5 pb-4"
+                    <label for="" class="me-5 pb-4"
                       >Owner Contact Number</label
                     >
                   </div>
@@ -1314,40 +1531,40 @@
                   <div class="col-8">
                     <input
                       type="text"
-                      name="addVehicleCategory"
-                      id="addVehicleCategory"
+                      name=""
+                      id=""
                       class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                       placeholder="Select Category"
                     />
 
                     <input
                       type="text"
-                      name="addVehicleCategory"
-                      id="addVehicleCategory"
+                      name=""
+                      id=""
                       class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                       placeholder="Vehicle Company"
                     />
 
                     <input
                       type="text"
-                      name="addVehicleCategory"
-                      id="addVehicleCategory"
+                      name=""
+                      id=""
                       class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                       placeholder="Registration Number"
                     />
 
                     <input
                       type="text"
-                      name="addVehicleCategory"
-                      id="addVehicleCategory"
+                      name=""
+                      id=""
                       class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                       placeholder="Owner Name"
                     />
 
                     <input
                       type="text"
-                      name="addVehicleCategory"
-                      id="addVehicleCategory"
+                      name=""
+                      id=""
                       class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                       placeholder="Owner Contact Number"
                     />
@@ -1389,7 +1606,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -1549,7 +1768,7 @@
             </div>
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
-              <table id="" class="w-100">
+              <table class="w-100">
                 <thead class="border-top border-bottom">
                   <tr>
                     <th class="py-3 ps-3 fw-bold">S.NO</th>
@@ -1573,7 +1792,7 @@
                         View
                       </button>
                       <button
-                        class="btn-linkRouter text-white bg-warning rounded-1 border-0 py-2 px-3"
+                        class="btn-linkRouter bg-warning rounded-1 border-0 py-2 px-3"
                         data-route="/index.html#"
                       >
                         Print
@@ -1613,7 +1832,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -1774,7 +1995,6 @@
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
               <table
-                id=""
                 class="w-100 align-middle table table-bordered table-fitViewVehicle"
               >
                 <tbody>
@@ -1822,7 +2042,6 @@
           <div class="dashboard-background">
             <div class="row customColVehicleAddCategory mw-100 ms-5 mb-5">
               <table
-                id=""
                 class="w-100 table table-borderless table-fitUpdateViewVehicle"
               >
                 <tbody>
@@ -1831,8 +2050,8 @@
                     <td class="pt-3">
                       <textarea
                         class="w-100"
-                        name=""
-                        id=""
+                        name="vehicleIncomingRemark"
+                        id="vehicleIncomingRemark"
                         cols="30"
                         rows="10"
                       ></textarea>
@@ -1841,7 +2060,11 @@
                   <tr class="border-top">
                     <th class="fw-bold p-3" scope="row">Parking Charge:</th>
                     <td class="pt-2">
-                      <input type="text" class="w-100" id="" />
+                      <input
+                        type="text"
+                        class="w-100"
+                        id="vehicleIncomingParkingCharge"
+                      />
                     </td>
                   </tr>
                   <tr class="border-top">
@@ -1889,7 +2112,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -2049,7 +2274,7 @@
             </div>
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
-              <table id="" class="w-100">
+              <table class="w-100">
                 <thead class="border-top border-bottom">
                   <tr>
                     <th class="py-3 ps-3 fw-bold">S.NO</th>
@@ -2073,7 +2298,7 @@
                         View
                       </button>
                       <button
-                        class="btn-linkRouter text-white bg-warning rounded-1 border-0 py-2 px-3"
+                        class="btn-linkRouter bg-warning rounded-1 border-0 py-2 px-3"
                         data-route="/index.html#"
                       >
                         Print
@@ -2113,7 +2338,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -2274,7 +2501,6 @@
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
               <table
-                id=""
                 class="w-100 align-middle table table-bordered table-fitViewVehicle"
               >
                 <tbody>
@@ -2358,7 +2584,9 @@
                 data-route="/index.html#home"
                 >Admin</a
               >
-              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"></i>
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+              ></i>
             </div>
           </nav>
         </div>
@@ -2491,7 +2719,9 @@
           </ul>
         </div>
 
-        <div class="col-10 dashboard-background px-0 h-100">
+        <div
+          class="col-10 dashboard-background px-0 customHeightVehicleManageCategory"
+        >
           <div class="row w-100 mw-100 m-0">
             <div
               class="customColVehicleAddCategory my-5 mx-5 px-5 py-3 bg-white rounded-top d-flex align-items-center"
@@ -2517,13 +2747,11 @@
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
               <div class="col-12">
-                <label for="addVehicleCategory" class="me-5"
-                  >Search By Parking Number</label
-                >
+                <label for="" class="me-5">Search By Parking Number</label>
                 <input
                   type="text"
-                  name="addVehicleCategory"
-                  id="addVehicleCategory"
+                  name="searchParkingNumber"
+                  id="searchParkingNumber"
                   class="px-2 py-1 ms-5 border border-1 border-dark-subtle rounded-1 col-9"
                 />
               </div>
@@ -2536,8 +2764,10 @@
               </div>
             </div>
             <div class="bg-white pb-4 hide">
-              <p class="text-center fs-5">Result against "<span>example</span>" keyword</p>
-              <table id="" class="w-100">
+              <p class="text-center fs-5">
+                Result against "<span>example</span>" keyword
+              </p>
+              <table class="w-100">
                 <thead class="border-top border-bottom">
                   <tr>
                     <th class="py-3 ps-3 fw-bold">S.NO</th>
@@ -2591,9 +2821,14 @@
     crossorigin="anonymous"
   ></script>
   <script src="https://cdn.jsdelivr.net/npm/jqueryrouter@2.2.11/dist/js/jquery.router.min.js"></script>
-  <script src="index.js" type="module"></script>
   <script
     src="https://kit.fontawesome.com/e76b48df6f.js"
     crossorigin="anonymous"
   ></script>
+  <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.js"></script>
+  <script src="index.js" type="module"></script>
+  <script src="adminLogin.js" type="module"></script>
+  <script src="adminDashboard.js" type="module"></script>
+  <script src="adminVehicleAddCategory.js" type="module"></script>
+  <script src="adminVehicleManageCategory.js" type="module"></script>
 </html>
