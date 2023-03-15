@@ -59,7 +59,7 @@ const addVehicleCategory = () => {
             body: JSON.stringify(categoryPost),
           }
         ).then((data) => {
-          $("#manageVehicleCategoriesTable").DataTable().destroy();
+          // $("#manageVehicleCategoriesTable").DataTable().destroy();
           updateManageVehicleCategoryTable();
           document.getElementById("btnToManageVehicleCategory").click();
           // Update things Here
