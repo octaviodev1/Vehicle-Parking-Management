@@ -388,8 +388,7 @@
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
                 ><i
-                  id="btn-endSession"
-                  class="fa-solid fa-right-from-bracket fa-2xs pt-2"
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
                 ></i
               ></i>
             </div>
@@ -637,7 +636,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -852,7 +853,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -1004,6 +1007,13 @@
           </div>
 
           <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
+            <button
+            id="btn-goToUpdateCategorySection"
+            class="btn-linkRouter hide"
+            data-route="/index.html#vehicleUpdateCategory"
+          >
+            ToUpdate
+          </button>
             <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
               <p class="m-0 px-4 py-3">
                 <span class="fw-bold">Manage Category</span>
@@ -1066,7 +1076,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -1230,14 +1242,19 @@
                 <input
                   type="text"
                   name="updateCategoryName"
-                  id="updateCategoryName"
+                  id="updateCategoryNameInput"
                   class="px-2 py-1 border border-1 border-dark-subtle rounded-1 col-9"
                   placeholder="Vehicle Category"
                 />
+                <span
+                  id="errorUpdateVehicleCategory"
+                  class="customMarginSpanVehicleAddCategory error form-text my-5 text-danger hide"
+                ></span>
               </div>
               <div class="row justify-content-center py-3">
                 <button
                   class="w-auto bg-primary text-white rounded-1 border-0 py-1"
+                  id="updateCategoryName"
                 >
                   Update
                 </button>
@@ -1269,7 +1286,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -1607,7 +1626,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -1833,7 +1854,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -2113,7 +2136,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -2339,7 +2364,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -2585,7 +2612,9 @@
                 >Admin</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -2831,4 +2860,5 @@
   <script src="adminDashboard.js" type="module"></script>
   <script src="adminVehicleAddCategory.js" type="module"></script>
   <script src="adminVehicleManageCategory.js" type="module"></script>
+  <script src="adminUpdateCategory.js" type="module"></script>
 </html>

@@ -77,12 +77,13 @@ const loadRouterPage = () => {
 
 loadRouterPage();
 
-const btn_endSession = document.getElementById("btn-endSession");
-btn_endSession.addEventListener("click", function () {
-  if (JSON.parse(localStorage.getItem("loggedAdmin")) == true) {
-    localStorage.setItem("loggedAdmin", false);
-    document.getElementById("btn-goToHome").click();
-  }
-});
+const btn_endSession = document.querySelectorAll(".btn-endSession").forEach((element) => {
+  element.addEventListener("click", function () {
+    if (JSON.parse(localStorage.getItem("loggedAdmin")) == true) {
+      localStorage.setItem("loggedAdmin", false);
+      document.getElementById("btn-goToHome").click();
+    }
+  })
+})
 
 export { loadRouterPage };
