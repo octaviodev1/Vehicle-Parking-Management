@@ -121,7 +121,7 @@ const updateCategory = () => {
         let buttonToUpdateCategory = document.getElementById(
           "categoryIdentifierToUpdate-" + i
         );
-        $("#categoryIdentifierToUpdate-" + i).data("categoryId", i);
+        // $("#categoryIdentifierToUpdate-" + i).data("categoryId", i);
         if (buttonToUpdateCategory) {
           allButtonsUpdateCategory.push(buttonToUpdateCategory);
 

@@ -19,7 +19,7 @@ const onPageWithHashLoaded = () => {
 };
 
 // ROUTER
-const loadRouterPage = () => {
+
   $(".btn-linkRouter").on("click", function (e) {
     setCurrentRouteFromDataBtn($(this));
     onChangeRoute($(this));
@@ -73,17 +73,16 @@ const loadRouterPage = () => {
       }
     })
     .trigger("hashchange");
-};
 
-loadRouterPage();
 
-const btn_endSession = document.querySelectorAll(".btn-endSession").forEach((element) => {
-  element.addEventListener("click", function () {
-    if (JSON.parse(localStorage.getItem("loggedAdmin")) == true) {
-      localStorage.setItem("loggedAdmin", false);
-      document.getElementById("btn-goToHome").click();
-    }
-  })
-})
 
-export { loadRouterPage };
+const btn_endSession = document
+  .querySelectorAll(".btn-endSession")
+  .forEach((element) => {
+    element.addEventListener("click", function (e) {
+      if (JSON.parse(localStorage.getItem("loggedAdmin")) == true) {
+        localStorage.setItem("loggedAdmin", false);
+        document.getElementById("btn-goToHome").click();
+      }
+    });
+  });

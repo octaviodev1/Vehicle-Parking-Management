@@ -1,4 +1,6 @@
 import { updateManageVehicleCategoryTable } from "./adminVehicleManageCategory.js";
+import { updateSelectCategoryAddVehicle } from "./adminAddVehicle.js";
+import { updateManageIncomingVehicleTable } from "./adminManageIncomingVehicle.js";
 
 const sigInAdminBtn = document.getElementById("signIn-adminLogin");
 
@@ -79,6 +81,8 @@ const sigInAdmin = () => {
           adminPassword.value = "";
           document.getElementById("btnToDashboardAdmin").click();
           updateManageVehicleCategoryTable();
+          updateSelectCategoryAddVehicle();
+          updateManageIncomingVehicleTable();
         }
       }
 

@@ -1,6 +1,5 @@
 import { transformData } from "./adminLogin.js";
 import { updateCategory } from "./adminUpdateCategory.js";
-import { loadRouterPage } from "./index.js";
 
 const deleteCategory = () => {
   fetch(
@@ -105,7 +104,8 @@ const updateManageVehicleCategoryTable = () => {
             "'>Delete</button> </td>";
           temp += "</tr>";
         }
-        document.getElementById("manageVehicleCategoryTable").innerHTML = temp;
+        document.getElementById("manageVehicleCategoriesDataTable").innerHTML =
+          temp;
 
         $("#manageVehicleCategoriesTable").DataTable({
           paging: true,
@@ -117,14 +117,12 @@ const updateManageVehicleCategoryTable = () => {
           pagingType: "numbers",
           autoWidth: false,
         });
-        loadRouterPage();
         deleteCategory();
         updateCategory();
         let tableManageVehicleCategoriesPagination = document.getElementById(
           "manageVehicleCategoriesTable_paginate"
         );
         tableManageVehicleCategoriesPagination.addEventListener("click", () => {
-          loadRouterPage();
           deleteCategory();
           updateCategory();
         });

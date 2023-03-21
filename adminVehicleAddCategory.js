@@ -1,5 +1,6 @@
 import { transformData } from "./adminLogin.js";
 import { updateManageVehicleCategoryTable } from "./adminVehicleManageCategory.js";
+import { updateSelectCategoryAddVehicle } from "./adminAddVehicle.js";
 
 const btn_addVehicleCategory = document.getElementById(
   "btn-addVehicleCategory"
@@ -61,6 +62,7 @@ const addVehicleCategory = () => {
         ).then((data) => {
           // $("#manageVehicleCategoriesTable").DataTable().destroy();
           updateManageVehicleCategoryTable();
+          updateSelectCategoryAddVehicle();
           document.getElementById("btnToManageVehicleCategory").click();
           // Update things Here
         });

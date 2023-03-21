@@ -269,3 +269,23 @@ table.table-fitUpdateViewVehicle tbody td {
   padding-left: 1rem !important;
   margin-right: 0.25rem !important;
 }
+
+/* Pagination Table Manage Incoming Vehicle */
+#manageIncomingVehiclesTable_paginate > span > a {
+  color: black;
+  border: 0 !important;
+  text-decoration: none;
+  border-radius: var(--bs-border-radius-sm) !important;
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-primary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  margin-right: 0.25rem !important;
+}

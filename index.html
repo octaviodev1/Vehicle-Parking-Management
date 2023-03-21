@@ -1008,12 +1008,12 @@
 
           <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
             <button
-            id="btn-goToUpdateCategorySection"
-            class="btn-linkRouter hide"
-            data-route="/index.html#vehicleUpdateCategory"
-          >
-            ToUpdate
-          </button>
+              id="btn-goToUpdateCategorySection"
+              class="btn-linkRouter hide"
+              data-route="/index.html#vehicleUpdateCategory"
+            >
+              ToUpdate
+            </button>
             <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
               <p class="m-0 px-4 py-3">
                 <span class="fw-bold">Manage Category</span>
@@ -1029,7 +1029,7 @@
                     <th class="py-3 ps-3 fw-bold">Action</th>
                   </tr>
                 </thead>
-                <tbody id="manageVehicleCategoryTable">
+                <tbody id="manageVehicleCategoriesDataTable">
                   <!-- <tr class="border-top border-2">
                     <td class="pt-3 pb-4 ps-3">1</td>
                     <td class="pt-3 pb-4 ps-3">Four Wheeler Vehicle</td>
@@ -1453,13 +1453,18 @@
                     <th scope="row">Select</th>
                     <td>
                       <select
-                        class="px-2 py-1 mb-4 border border-1 border-dark-subtle text-secondary rounded-1 col-12"
+                        id="addVehicleCategorySelect"
+                        class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         name="vehicleCategory"
                       >
                         <option value="" disabled selected hidden>
                           Select Category
                         </option>
                       </select>
+                      <span
+                        class="error form-text my-5 text-danger"
+                        id="errorSelectedCategoryAddVehicle"
+                      ></span>
                       <!-- <input
                         type="text"
                         name=""
@@ -1480,6 +1485,10 @@
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Vehicle Company"
                       />
+                      <span
+                        class="error form-text my-5 text-danger"
+                        id="errorVehicleCompanyAddVehicle"
+                      ></span>
                     </td>
                   </tr>
 
@@ -1493,6 +1502,10 @@
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Registration Number"
                       />
+                      <span
+                        class="error form-text my-5 text-danger"
+                        id="errorRegistrarionNumberAddVehicle"
+                      ></span>
                     </td>
                   </tr>
 
@@ -1506,6 +1519,10 @@
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Owner Name"
                       />
+                      <span
+                        class="error form-text my-5 text-danger"
+                        id="errorOwnerNameAddVehicle"
+                      ></span>
                     </td>
                   </tr>
 
@@ -1519,6 +1536,10 @@
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
                         placeholder="Owner Contact Number"
                       />
+                      <span
+                        class="error form-text my-5 text-danger"
+                        id="errorOwnerContactNumberAddVehicle"
+                      ></span>
                     </td>
                   </tr>
                 </tbody>
@@ -1593,10 +1614,17 @@
 
               <div class="row justify-content-center mb-3">
                 <button
-                  class="btn-linkRouter w-auto bg-primary text-white rounded-1 border-0 py-1"
-                  data-route="/index.html#manageInVehicle"
+                  id="addVehicleToManageIn"
+                  class="w-auto bg-primary text-white rounded-1 border-0 py-1"
                 >
                   Add
+                </button>
+                <button
+                  id="btn-goToManageInVehicle"
+                  class="btn-linkRouter hide"
+                  data-route="/index.html#manageInVehicle"
+                >
+                  goToManageInVehicle
                 </button>
               </div>
             </div>
@@ -1782,6 +1810,13 @@
           </div>
 
           <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
+            <button
+            id="btn-goToViewVehicleDetails"
+            class="btn-linkRouter hide"
+            data-route="/index.html#viewVehicleIncoming"
+          >
+            ToDetails
+          </button>
             <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
               <p class="m-0 px-4 py-3">
                 <span class="fw-bold">Manage Incoming Vehicle</span>
@@ -1789,7 +1824,7 @@
             </div>
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
-              <table class="w-100">
+              <table class="w-100" id="manageIncomingVehiclesTable">
                 <thead class="border-top border-bottom">
                   <tr>
                     <th class="py-3 ps-3 fw-bold">S.NO</th>
@@ -1799,8 +1834,8 @@
                     <th class="py-3 ps-3 fw-bold">Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr class="border-top border-2">
+                <tbody id="manageIncomingVehicleDataTable">
+                  <!-- <tr class="border-top border-2">
                     <td class="pt-3 pb-4 ps-3">1</td>
                     <td class="pt-3 pb-4 ps-3">45634563456</td>
                     <td class="pt-3 pb-4 ps-3">ABDUL</td>
@@ -1824,7 +1859,7 @@
                         Delete
                       </button>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -2020,8 +2055,8 @@
               <table
                 class="w-100 align-middle table table-bordered table-fitViewVehicle"
               >
-                <tbody>
-                  <tr>
+                <tbody id="viewVehicleDetailsDataTable">
+                  <!-- <tr>
                     <th class="fw-bold p-3" scope="row">Parking Number</th>
                     <td>Example</td>
                   </tr>
@@ -2056,7 +2091,7 @@
                   <tr>
                     <th class="fw-bold p-3" scope="row">Status</th>
                     <td>Example</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -2861,4 +2896,8 @@
   <script src="adminVehicleAddCategory.js" type="module"></script>
   <script src="adminVehicleManageCategory.js" type="module"></script>
   <script src="adminUpdateCategory.js" type="module"></script>
+  <script src="adminAddVehicle.js" type="module"></script>
+  <script src="adminManageIncomingVehicle.js" type="module"></script>
+  <script src="viewDetailsVehicleIncoming.js" type="module"></script>
+  <script src="adminManageOutcomingVehicle.js" type="module"></script>
 </html>
