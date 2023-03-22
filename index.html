@@ -1811,12 +1811,12 @@
 
           <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
             <button
-            id="btn-goToViewVehicleDetails"
-            class="btn-linkRouter hide"
-            data-route="/index.html#viewVehicleIncoming"
-          >
-            ToDetails
-          </button>
+              id="btn-goToViewIncomingVehicleDetails"
+              class="btn-linkRouter hide"
+              data-route="/index.html#viewVehicleIncoming"
+            >
+              ToDetails
+            </button>
             <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
               <p class="m-0 px-4 py-3">
                 <span class="fw-bold">Manage Incoming Vehicle</span>
@@ -2055,7 +2055,7 @@
               <table
                 class="w-100 align-middle table table-bordered table-fitViewVehicle"
               >
-                <tbody id="viewVehicleDetailsDataTable">
+                <tbody id="viewVehicleIncomingDetailsDataTable">
                   <!-- <tr>
                     <th class="fw-bold p-3" scope="row">Parking Number</th>
                     <td>Example</td>
@@ -2113,32 +2113,52 @@
                         cols="30"
                         rows="10"
                       ></textarea>
+                      <span
+                        id="errorVehicleIncomingRemark"
+                        class="error form-text my-5 text-danger"
+                      ></span>
                     </td>
                   </tr>
                   <tr class="border-top">
                     <th class="fw-bold p-3" scope="row">Parking Charge:</th>
                     <td class="pt-2">
                       <input
-                        type="text"
+                        type="number"
                         class="w-100"
                         id="vehicleIncomingParkingCharge"
                       />
+                      <span
+                        id="errorVehicleIncomingParkingCharge"
+                        class="error form-text my-5 text-danger"
+                      ></span>
                     </td>
                   </tr>
                   <tr class="border-top">
                     <th class="fw-bold p-3" scope="row">Status:</th>
                     <td class="py-3">
-                      <select class="w-100" name="viewIncomingVehicle">
-                        <option selected>Outgoing Vehicle</option>
+                      <select
+                        id="vehicleIncomingStatus"
+                        class="w-100"
+                        name="viewIncomingVehicle"
+                      >
+                        <option value="Out" selected>Outgoing Vehicle</option>
                       </select>
                     </td>
                   </tr>
                   <tr>
                     <th class="border-top">
                       <button
+                        id="vehicleIncomingUpdateButton"
                         class="w-auto bg-primary text-white rounded-1 border-0 py-1"
                       >
                         Update
+                      </button>
+                      <button
+                        id="btn-goToManageOutVehicle"
+                        class="btn-linkRouter hide"
+                        data-route="/index.html#manageOutVehicle"
+                      >
+                        ToManageOutVehicle
                       </button>
                     </th>
                   </tr>
@@ -2334,7 +2354,14 @@
             </div>
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
-              <table class="w-100">
+              <button
+                id="btn-goToViewOutgoingVehicleDetails"
+                class="btn-linkRouter hide"
+                data-route="/index.html#viewVehicleOutgoing"
+              >
+                ToDetails
+              </button>
+              <table class="w-100" id="manageOutgoingVehiclesTable">
                 <thead class="border-top border-bottom">
                   <tr>
                     <th class="py-3 ps-3 fw-bold">S.NO</th>
@@ -2344,8 +2371,8 @@
                     <th class="py-3 ps-3 fw-bold">Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr class="border-top border-2">
+                <tbody id="manageOutgoingVehicleDataTable">
+                  <!-- <tr class="border-top border-2">
                     <td class="pt-3 pb-4 ps-3">1</td>
                     <td class="pt-3 pb-4 ps-3">45634563456</td>
                     <td class="pt-3 pb-4 ps-3">ABDUL</td>
@@ -2369,7 +2396,7 @@
                         Delete
                       </button>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -2546,9 +2573,9 @@
               <div>
                 <p class="m-0">
                   <span class="text-body-tertiary"
-                    >Dashboard / View Vehicle /</span
+                    >Dashboard / Manage Vehicle /</span
                   >
-                  Incoming Vehicle
+                  Manage Outgoing Vehicle
                 </p>
               </div>
             </div>
@@ -2557,7 +2584,7 @@
           <div class="row customColVehicleAddCategory mw-100 ms-5 mb-2 shadow">
             <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
               <p class="m-0 px-4 py-3">
-                <span class="fw-bold">View Incoming Vehicle</span>
+                <span class="fw-bold">Manage Outgoing Vehicle</span>
               </p>
             </div>
 
@@ -2565,8 +2592,8 @@
               <table
                 class="w-100 align-middle table table-bordered table-fitViewVehicle"
               >
-                <tbody>
-                  <tr>
+                <tbody id="viewVehicleOutgoingDetailsDataTable">
+                  <!-- <tr>
                     <th class="fw-bold p-3" scope="row">Parking Number</th>
                     <td>Example</td>
                   </tr>
@@ -2613,7 +2640,7 @@
                   <tr>
                     <th class="fw-bold p-3" scope="row">Parking Fee</th>
                     <td>Example</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -2899,5 +2926,6 @@
   <script src="adminAddVehicle.js" type="module"></script>
   <script src="adminManageIncomingVehicle.js" type="module"></script>
   <script src="viewDetailsVehicleIncoming.js" type="module"></script>
-  <script src="adminManageOutcomingVehicle.js" type="module"></script>
+  <script src="adminManageOutgoingVehicle.js" type="module"></script>
+  <script src="viewDetailsVehicleOutgoing.js" type="module"></script>
 </html>

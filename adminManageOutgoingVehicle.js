@@ -1,9 +1,9 @@
 import { transformData } from "./adminLogin.js";
-import { viewDetailsVehicleIncoming } from "./viewDetailsVehicleIncoming.js";
+import { viewDetailsVehicleOutgoing } from "./viewDetailsVehicleOutgoing.js";
 
-const deleteIncomingVehicle = () => {
+const deleteOutgoingVehicle = () => {
   fetch(
-    "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesIn.json",
+    "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesOut.json",
     {
       method: "GET",
     }
@@ -11,15 +11,15 @@ const deleteIncomingVehicle = () => {
     .then((response) => response.json())
     .then((data) => transformData(data))
     .then((data) => {
-      let vehiclesIncoming = data;
+      let vehiclesOutgoing = data;
 
-      let vehiclesIdentifier = vehiclesIncoming.map((category) => category.id);
+      let vehiclesIdentifier = vehiclesOutgoing.map((category) => category.id);
 
       let allButtonsDeleteVehicle = [];
 
-      for (let i = 0; i < vehiclesIncoming.length; i++) {
+      for (let i = 0; i < vehiclesOutgoing.length; i++) {
         let buttonDeleteVehicle = document.getElementById(
-          "inVehicleToDelete-" + i
+          "outVehicleToDelete-" + i
         );
 
         if (buttonDeleteVehicle) {
@@ -27,14 +27,14 @@ const deleteIncomingVehicle = () => {
           buttonDeleteVehicle.addEventListener("click", function (e) {
             let actualVehicleId = $(this).data("vehicleId");
             fetch(
-              "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesIn/" +
+              "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesOut/" +
                 actualVehicleId +
                 ".json",
               {
                 method: "DELETE",
               }
             ).then((resp) => {
-              updateManageIncomingVehicleTable();
+              updateManageOutgoingVehicleTable();
             });
           });
         } else {
@@ -44,15 +44,18 @@ const deleteIncomingVehicle = () => {
 
       for (let i = 0; i < allButtonsDeleteVehicle.length; i++) {
         if (isNaN(allButtonsDeleteVehicle[i])) {
-          $("#inVehicleToDelete-" + i).data("vehicleId", vehiclesIdentifier[i]);
+          $("#outVehicleToDelete-" + i).data(
+            "vehicleId",
+            vehiclesIdentifier[i]
+          );
         }
       }
     });
 };
 
-const updateManageIncomingVehicleTable = () => {
+const updateManageOutgoingVehicleTable = () => {
   fetch(
-    "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesIn.json",
+    "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesOut.json",
     {
       method: "GET",
     }
@@ -60,43 +63,43 @@ const updateManageIncomingVehicleTable = () => {
     .then((response) => response.json())
     .then((data) => transformData(data))
     .then((data) => {
-      let vehiclesIncoming = data;
+      let vehiclesOutgoing = data;
 
       let temp = "";
 
-      const makeTableVehiclesIncoming = () => {
-        for (let i = 0; i < vehiclesIncoming.length; i++) {
+      const makeTableVehiclesOutgoing = () => {
+        for (let i = 0; i < vehiclesOutgoing.length; i++) {
           temp += "<tr class='border-top border-2'>";
           temp += "<td class='pt-3 pb-4 ps-3'>" + (i + 1) + "</td>";
           temp +=
             "<td class='pt-3 pb-4 ps-3'>" +
-            vehiclesIncoming[i].parkingNumber +
+            vehiclesOutgoing[i].parkingNumber +
             "</td>";
           temp +=
             "<td class='pt-3 pb-4 ps-3'>" +
-            vehiclesIncoming[i].vehicleOwnerName +
+            vehiclesOutgoing[i].vehicleOwnerName +
             "</td>";
           temp +=
             "<td class='pt-3 pb-4 ps-3'>" +
-            vehiclesIncoming[i].vehicleRegistrationNumber +
+            vehiclesOutgoing[i].vehicleRegistrationNumber +
             "</td>";
 
           temp +=
-            "<td class='pt-3 pb-4 ps-3'> <button class='text-white bg-primary rounded-1 border-0 py-2 px-3 me-1' id='inVehicleToViewDetails-" +
+            "<td class='pt-3 pb-4 ps-3'> <button class='text-white bg-primary rounded-1 border-0 py-2 px-3 me-1' id='outVehicleToViewDetails-" +
             i +
             "'> View </button>";
           temp +=
             "<button class='bg-warning rounded-1 border-0 py-2 px-3 me-1'> Print </button>";
           temp +=
-            "<button class='text-white bg-danger rounded-1 border-0 py-2 px-3'id='inVehicleToDelete-" +
+            "<button class='text-white bg-danger rounded-1 border-0 py-2 px-3'id='outVehicleToDelete-" +
             i +
             "'>Delete</button> </td>";
           temp += "</tr>";
         }
-        document.getElementById("manageIncomingVehicleDataTable").innerHTML =
+        document.getElementById("manageOutgoingVehicleDataTable").innerHTML =
           temp;
 
-        $("#manageIncomingVehiclesTable").DataTable({
+        $("#manageOutgoingVehiclesTable").DataTable({
           paging: true,
           ordering: false,
           info: false,
@@ -106,24 +109,24 @@ const updateManageIncomingVehicleTable = () => {
           pagingType: "numbers",
           autoWidth: false,
         });
-        deleteIncomingVehicle();
-        viewDetailsVehicleIncoming();
+        deleteOutgoingVehicle();
+        viewDetailsVehicleOutgoing();
         let tableIncomingVehiclePagination = document.getElementById(
-          "manageIncomingVehiclesTable_paginate"
+          "manageOutgoingVehiclesTable_paginate"
         );
         tableIncomingVehiclePagination.addEventListener("click", () => {
-          deleteIncomingVehicle();
-          viewDetailsVehicleIncoming();
+          deleteOutgoingVehicle();
+          viewDetailsVehicleOutgoing();
         });
       };
 
-      if (DataTable.isDataTable($("#manageIncomingVehiclesTable"))) {
-        $("#manageIncomingVehiclesTable").DataTable().destroy();
-        makeTableVehiclesIncoming();
+      if (DataTable.isDataTable($("#manageOutgoingVehiclesTable"))) {
+        $("#manageOutgoingVehiclesTable").DataTable().destroy();
+        makeTableVehiclesOutgoing();
       } else {
-        makeTableVehiclesIncoming();
+        makeTableVehiclesOutgoing();
       }
     });
 };
 
-export { updateManageIncomingVehicleTable };
+export { updateManageOutgoingVehicleTable };

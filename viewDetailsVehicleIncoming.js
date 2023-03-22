@@ -1,5 +1,16 @@
 import { transformData } from "./adminLogin.js";
-// import { updateManageIncomingVehicleTable } from "./adminManageIncomingVehicle.js";
+import { updateManageIncomingVehicleTable } from "./adminManageIncomingVehicle.js";
+import { updateManageOutgoingVehicleTable } from "./adminManageOutgoingVehicle.js";
+
+let actualVehicleId = "";
+let actualParkingNumber = "";
+let actualVehicleCategory = "";
+let actualVehicleCompanyName = "";
+let actualRegistrationNumber = "";
+let actualOwnerName = "";
+let actualOwnerContactNumber = "";
+let actualInTime = "";
+let actualStatus = "";
 
 const viewDetailsVehicleIncoming = () => {
   fetch(
@@ -19,15 +30,6 @@ const viewDetailsVehicleIncoming = () => {
       // let input_categoryToUpdate = document.getElementById(
       //   "updateCategoryNameInput"
       // );
-      let actualVehicleId = "";
-      let actualParkingNumber = "";
-      let actualVehicleCategory = "";
-      let actualVehicleCompanyName = "";
-      let actualRegistrationNumber = "";
-      let actualOwnerName = "";
-      let actualOwnerContactNumber = "";
-      let actualInTime = "";
-      let actualStatus = "";
 
       const makeTableViewDetailsVehicleIncoming = () => {
         let temp = "";
@@ -72,12 +74,12 @@ const viewDetailsVehicleIncoming = () => {
         temp += "<td>" + actualStatus + "</td>";
         temp += "</tr>";
 
-        document.getElementById("viewVehicleDetailsDataTable").innerHTML = temp;
+        document.getElementById("viewVehicleIncomingDetailsDataTable").innerHTML = temp;
       };
 
       for (let i = 0; i < vehicles.length; i++) {
         let buttonToViewVehicleDetails = document.getElementById(
-          "vehicleToViewDetails-" + i
+          "inVehicleToViewDetails-" + i
         );
 
         if (buttonToViewVehicleDetails) {
@@ -89,7 +91,7 @@ const viewDetailsVehicleIncoming = () => {
 
       for (let i = 0; i < allButtonsViewDetails.length; i++) {
         if (isNaN(allButtonsViewDetails[i])) {
-          $("#vehicleToViewDetails-" + i).data("vehicle", {
+          $("#inVehicleToViewDetails-" + i).data("vehicle", {
             id: vehiclesIdentifier[i],
             parkingNumber: vehicles[i].parkingNumber,
             vehicleCategory: vehicles[i].vehicleCategory,
@@ -105,7 +107,7 @@ const viewDetailsVehicleIncoming = () => {
 
       for (let i = 0; i < vehicles.length; i++) {
         let buttonToViewVehicleDetails = document.getElementById(
-          "vehicleToViewDetails-" + i
+          "inVehicleToViewDetails-" + i
         );
         if (buttonToViewVehicleDetails) {
           buttonToViewVehicleDetails.addEventListener("click", function (e) {
@@ -122,130 +124,109 @@ const viewDetailsVehicleIncoming = () => {
             actualStatus = $(this).data("vehicle").status;
 
             makeTableViewDetailsVehicleIncoming();
-            
-            document.getElementById("btn-goToViewVehicleDetails").click();
+
+            document.getElementById("btn-goToViewIncomingVehicleDetails").click();
           });
         }
       }
     });
 };
 
+const updateVehicleStatus = () => {
+  let vehicleIncomingRemark = document.getElementById("vehicleIncomingRemark");
+  let errorVehicleIncomingRemark = document.getElementById(
+    "errorVehicleIncomingRemark"
+  );
+
+  let vehicleIncomingParkingCharge = document.getElementById(
+    "vehicleIncomingParkingCharge"
+  );
+  let errorVehicleIncomingParkingCharge = document.getElementById(
+    "errorVehicleIncomingParkingCharge"
+  );
+
+  let vehicleIncomingStatus = document.getElementById("vehicleIncomingStatus");
+
+  let valid = [];
+
+  if (
+    vehicleIncomingRemark.value == null ||
+    vehicleIncomingRemark.value == ""
+  ) {
+    errorVehicleIncomingRemark.innerHTML = "Please write a remark.";
+    valid.push("false");
+  } else {
+    errorVehicleIncomingRemark.innerHTML = "";
+    valid.push("true");
+  }
+
+  if (
+    vehicleIncomingParkingCharge.value == null ||
+    vehicleIncomingParkingCharge.value == ""
+  ) {
+    errorVehicleIncomingParkingCharge.innerHTML =
+      "Please enter a parking charge.";
+    valid.push("false");
+  } else {
+    errorVehicleIncomingParkingCharge.innerHTML = "";
+    valid.push("true");
+  }
+
+  const checkData = (element) => {
+    return element === "true";
+  };
+
+  if (valid.every(checkData)) {
+    let date = new Date();
+    let currentDate =
+      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    let currentTime =
+      date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+    let outTime = currentDate + " " + currentTime;
+
+    let vehicleOutToAdd = {};
+    vehicleOutToAdd.parkingNumber = actualParkingNumber;
+    vehicleOutToAdd.vehicleCategory = actualVehicleCategory;
+    vehicleOutToAdd.vehicleCompany = actualVehicleCompanyName;
+    vehicleOutToAdd.vehicleRegistrationNumber = actualRegistrationNumber;
+    vehicleOutToAdd.vehicleOwnerName = actualOwnerName;
+    vehicleOutToAdd.vehicleOwnerContactNumber = actualOwnerContactNumber;
+    vehicleOutToAdd.inTime = actualInTime;
+    vehicleOutToAdd.outTime = outTime;
+    vehicleOutToAdd.remark = vehicleIncomingRemark.value;
+    vehicleOutToAdd.status = vehicleIncomingStatus.value;
+    vehicleOutToAdd.parkingCharge = vehicleIncomingParkingCharge.value;
+
+    vehicleIncomingRemark.value = "";
+    vehicleIncomingParkingCharge.value = "";
+
+    fetch(
+      "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesIn/" +
+        actualVehicleId +
+        ".json",
+      {
+        method: "DELETE",
+      }
+    ).then((resp) => {
+      fetch(
+        "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesOut.json",
+        {
+          method: "POST",
+          body: JSON.stringify(vehicleOutToAdd),
+        }
+      ).then((resp) => {
+        updateManageIncomingVehicleTable();
+        updateManageOutgoingVehicleTable();
+        document.getElementById("btn-goToManageOutVehicle").click();
+      });
+    });
+  }
+};
+
+const vehicleIncomingUpdateButton = document.getElementById(
+  "vehicleIncomingUpdateButton"
+);
+vehicleIncomingUpdateButton.addEventListener("click", updateVehicleStatus);
+
 export { viewDetailsVehicleIncoming };
-
-// for (let i = 0; i < vehicles.length; i++) {
-//   temp += "<tr>";
-//   temp += "<th class='fw-bold p-3' scope='row'>Parking Number</th>";
-//   temp += "<td>" + vehicles[i].parkingNumber + "</td>";
-//   temp += "</tr>";
-// }
-// document.getElementById("viewVehicleDetailsDataTable").innerHTML =
-//   temp;
-
-//   let buttonToViewVehicleDetails =
-//     document.getElementById("updateCategoryName");
-
-//   buttonToViewVehicleDetails.addEventListener("click", function (e) {
-//     const errorUpdateVehicleCategory = document.getElementById(
-//       "errorUpdateVehicleCategory"
-//     );
-//     let categoryValidation = [];
-
-//     for (let i = 0; i < vehicles.length; i++) {
-//       categoryValidation.push(vehicles[i].categoryName);
-//     }
-
-//     const categoryValidationFilter = (category) => {
-//       return category === input_categoryToUpdate.value;
-//     };
-
-//     if (
-//       input_categoryToUpdate.value == null ||
-//       input_categoryToUpdate.value == ""
-//     ) {
-//       errorUpdateVehicleCategory.classList.remove("hide");
-//       errorUpdateVehicleCategory.innerHTML = "Please enter a category name";
-//     } else if (
-//       categoryValidation.filter(categoryValidationFilter).length > 0
-//     ) {
-//       errorUpdateVehicleCategory.classList.remove("hide");
-//       errorUpdateVehicleCategory.innerHTML = "Category already exists";
-//     } else {
-//       errorUpdateVehicleCategory.classList.add("hide");
-//       errorUpdateVehicleCategory.innerHTML = "";
-
-//       const categoryToUpdate = {
-//         categoryName: input_categoryToUpdate.value,
-//       };
-/*
-            if (actualCategoryId == null || actualCategoryId == "") {
-              return;
-            } else {
-              fetch(
-                "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehicle-categories/" +
-                  actualCategoryId +
-                  ".json",
-                {
-                  method: "PUT",
-                  body: JSON.stringify(categoryToUpdate),
-                }
-              ).then((resp) => {
-                updateManageIncomingVehicleTable();
-                document.getElementById("btnToManageVehicleCategory").click();
-                actualCategoryId = "";
-              });
-            }*/
-// }
-//   });
-
-//           buttonToViewVehicleDetails.addEventListener("click", function (e) {
-//             // document.getElementById("btn-goToViewVehicleDetails").click();
-//
-//                 <tr>
-//                     <th class="fw-bold p-3" scope="row">Parking Number</th>
-//                     <td>Example</td>
-//                   </tr>
-//                   <tr>
-//                     <th class="fw-bold p-3" scope="row">Vehicle Category</th>
-//                     <td>Example</td>
-//                   </tr>
-//                   <tr>
-//                     <th class="fw-bold p-3" scope="row">
-//                       Vehicle Company name
-//                     </th>
-//                     <td>Example</td>
-//                   </tr>
-//                   <tr>
-//                     <th class="fw-bold p-3" scope="row">Registration Number</th>
-//                     <td>Example</td>
-//                   </tr>
-//                   <tr>
-//                     <th class="fw-bold p-3" scope="row">Owner name</th>
-//                     <td>Example</td>
-//                   </tr>
-//                   <tr>
-//                     <th class="fw-bold p-3" scope="row">
-//                       Owner Contact Number
-//                     </th>
-//                     <td>Example</td>
-//                   </tr>
-//                   <tr>
-//                     <th class="fw-bold p-3" scope="row">In Time</th>
-//                     <td>Example</td>
-//                   </tr>
-//                   <tr>
-//                     <th class="fw-bold p-3" scope="row">Status</th>
-//                     <td>Example</td>
-//
-//             //   actualCategoryId = $(this).data("category").id;
-//             //   actualCategoryName = $(this).data("category").name;
-//             //   input_categoryToUpdate.value = actualCategoryName;
-//           });
-
-//   for (let i = 0; i < allButtonsViewDetails.length; i++) {
-//     if (isNaN(allButtonsViewDetails[i])) {
-//       $("#vehicleToViewDetails-" + i).data("category", {
-//         id: vehiclesIdentifier[i],
-//         name: vehicles[i].categoryName,
-//       });
-//     }
-//   }
