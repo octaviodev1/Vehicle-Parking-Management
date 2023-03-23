@@ -11,7 +11,6 @@ const viewDetailsVehicleOutgoing = () => {
     .then((data) => transformData(data))
     .then((data) => {
       let vehicles = data;
-      console.log(vehicles);
       let vehiclesIdentifier = vehicles.map((vehicle) => vehicle.id);
 
       let allButtonsViewDetails = [];
