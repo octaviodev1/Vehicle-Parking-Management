@@ -77,6 +77,7 @@ const sigInAdmin = () => {
         } else {
           localStorage.setItem("loggedInUserAdmin", JSON.stringify(userLogged));
           localStorage.setItem("loggedAdmin", true);
+          localStorage.setItem("loggedUser", false);
           //   localStorage.setItem("isEditing", false);
           adminUser.value = "";
           adminPassword.value = "";

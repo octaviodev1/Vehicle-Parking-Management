@@ -42,6 +42,7 @@
             </button>
 
             <button
+            id="btn-goToUserLogin"
               class="btn-linkRouter custom-btn-home fw-bold fs-3"
               data-route="/index.html#userLogin"
             >
@@ -151,19 +152,18 @@
         <div class="formContainer-userLogin">
           <h1 class="text-white text-center pz-5">VPMS!! Sign in</h1>
           <div class="form-userLogin bg-white rounded p-4">
-            <label for="userName-userLogin" class="text-black-50 form-label"
+            <label for="userContactNumber" class="text-black-50 form-label"
               >Contact Number</label
             ><br />
             <input
-              type="text"
+              type="number"
               class="w-100 form-control"
-              class="w-100"
-              id="userName-userLogin"
+              id="userContactNumber"
               placeholder="Contact Number"
             />
             <span
-              class="error form-text my-5 text-danger"
-              id="errorUserName-userLogin"
+              class="error form-text my-5 text-danger hide"
+              id="erroruserContactNumber"
             ></span>
             <br />
 
@@ -173,12 +173,14 @@
               </button>
             </div>
             <div class="d-flex flex-column">
-              <button
-                class="btn-linkRouter btn btn-success"
-                data-route="/index.html#dashboardUser"
-              >
+              <button class="btn btn-success" id="signIn-userLogin">
                 SIGN IN
               </button>
+              <button
+                class="btn-linkRouter hide"
+                id="goToUserDashboard"
+                data-route="/index.html#dashboardUser"
+              ></button>
             </div>
 
             <div class="d-flex justify-content-end">
@@ -205,7 +207,9 @@
                 >VPMS Users</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -241,7 +245,7 @@
                   class="greenColorDashboardElement customFontSizeDashboardUser"
                 >
                   Welcome to panel !!
-                  <span id="dashboardUserName">User Name</span>
+                  <span id="dashboardUserName"></span>
                 </p>
               </div>
             </div>
@@ -271,7 +275,135 @@
                 >VPMS Users</a
               >
               <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
-                ><i class="fa-solid fa-right-from-bracket fa-2xs pt-2"></i
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
+              ></i>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-2 d-flex flex-column z-3 sidebarNav shadow px-0">
+          <ul class="list-unstyled">
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-info bg-light py-1"
+                data-route="/index.html#dashboardUser"
+                ><i class="fa-solid fa-laptop px-4 py-3"></i>Dashboard</a
+              >
+            </li>
+
+            <li class="nav flex-column">
+              <a
+                class="btn-linkRouter text-decoration-none text-body-tertiary navElement py-1"
+                data-route="/index.html#viewVehicleUser"
+                ><i class="fa-solid fa-truck px-4 py-3"></i>View Vehicle</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="col-10 dashboard-background px-0 customHeightVehicleManageCategory"
+        >
+          <button
+            id="btn-goToViewDetailsUserVehicle"
+            class="btn-linkRouter hide"
+            data-route="/index.html#viewVehicleDetailsUser"
+          >
+            ToDetails
+          </button>
+
+          <div class="row w-100 mw-100 m-0">
+            <div
+              class="customColVehicleAddCategory my-5 mx-5 px-5 py-3 bg-white rounded-top d-flex align-items-center"
+            >
+              <div class="me-auto fs-5"><p class="m-0">Dashboard</p></div>
+              <div>
+                <p class="m-0">
+                  <span class="text-body-tertiary"
+                    >Dashboard / View Vehicle Parking Details /</span
+                  >
+                  View Vehicle Parking Details
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
+            <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
+              <p class="m-0 px-4 py-3">
+                <span class="fw-bold"
+                  >View Vehicle Parking Details (on the basis of Registered
+                  Mobile No)</span
+                >
+              </p>
+            </div>
+
+            <div class="w-100 bg-white rounded-bottom px-4 py-4">
+              <table id="userVehicleTable" class="w-100">
+                <thead class="border-top border-bottom">
+                  <tr>
+                    <th class="py-3 ps-3 fw-bold">S.NO</th>
+                    <th class="py-3 ps-3 fw-bold">Parking Number</th>
+                    <th class="py-3 ps-3 fw-bold">Owner Name</th>
+                    <th class="py-3 ps-3 fw-bold">Vehicle Reg Number</th>
+                    <th class="py-3 ps-3 fw-bold">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="userVehicleDataTable">
+                  <!-- <tr class="border-top border-2">
+                    <td class="pt-3 pb-4 ps-3">1</td>
+                    <td class="pt-3 pb-4 ps-3">45634563456</td>
+                    <td class="pt-3 pb-4 ps-3">ABDUL</td>
+                    <td class="pt-3 pb-4 ps-3">ES-23-51264</td>
+                    <td class="pt-3 pb-4 ps-3">
+                      <button
+                        class="btn-linkRouter text-white bg-primary rounded-1 border-0 py-2 px-3"
+                        data-route="/index.html#viewVehicleIncoming"
+                      >
+                        View
+                      </button>
+                      <button
+                        class="btn-linkRouter bg-warning rounded-1 border-0 py-2 px-3"
+                        data-route="/index.html#"
+                      >
+                        Print
+                      </button>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mw-100 mx-0 customFooterHeightVehicleManageCateogry">
+            <div
+              class="customColFooterDashboard bg-white mx-5 mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
+            >
+              <p class="customMarginFooterDashboard mt-3">
+                Vehicle Parking Management System
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vh-100" id="viewVehicleDetailsUser-page">
+      <div class="container-fluid row d-flex flex-row vh-100 mx-0">
+        <div class="col-12 container-fluid border-bottom">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-0">
+              <a
+                class="navbar-brand btn-linkRouter text-primary fs-4 fw-bold px-4"
+                data-route="/index.html#home"
+                >VPMS Users</a
+              >
+              <i class="fa-solid fa-circle-user d-flex fa-3x px-4 py-1"
+                ><i
+                  class="fa-solid fa-right-from-bracket fa-2xs pt-2 btn-endSession"
+                ></i
               ></i>
             </div>
           </nav>
@@ -308,68 +440,90 @@
               <div>
                 <p class="m-0">
                   <span class="text-body-tertiary"
-                    >Dashboard / View Vehicle Parking Details /</span
+                    >Dashboard / View Vehicle /</span
                   >
-                  View Vehicle Parking Details
+                  View Vehicle Details
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="row customColVehicleAddCategory mw-100 ms-5 shadow">
+          <div class="row customColVehicleAddCategory mw-100 ms-5 mb-2 shadow">
             <div class="w-100 bg-body-tertiary rounded-top p-0 border-bottom">
               <p class="m-0 px-4 py-3">
-                <span class="fw-bold"
-                  >View Vehicle Parking Details (on the basis of Registered
-                  Mobile No)</span
-                >
+                <span class="fw-bold">View Vehicle Details</span>
               </p>
             </div>
 
             <div class="w-100 bg-white rounded-bottom px-4 py-4">
-              <table class="w-100">
-                <thead class="border-top border-bottom">
-                  <tr>
-                    <th class="py-3 ps-3 fw-bold">S.NO</th>
-                    <th class="py-3 ps-3 fw-bold">Parking Number</th>
-                    <th class="py-3 ps-3 fw-bold">Owner Name</th>
-                    <th class="py-3 ps-3 fw-bold">Vehicle Reg Number</th>
-                    <th class="py-3 ps-3 fw-bold">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="border-top border-2">
-                    <td class="pt-3 pb-4 ps-3">1</td>
-                    <td class="pt-3 pb-4 ps-3">45634563456</td>
-                    <td class="pt-3 pb-4 ps-3">ABDUL</td>
-                    <td class="pt-3 pb-4 ps-3">ES-23-51264</td>
-                    <td class="pt-3 pb-4 ps-3">
-                      <button
-                        class="btn-linkRouter text-white bg-primary rounded-1 border-0 py-2 px-3"
-                        data-route="/index.html#viewVehicleIncoming"
-                      >
-                        View
-                      </button>
-                      <button
-                        class="btn-linkRouter bg-warning rounded-1 border-0 py-2 px-3"
-                        data-route="/index.html#"
-                      >
-                        Print
-                      </button>
-                    </td>
-                  </tr>
+              <table
+                class="w-100 align-middle table table-bordered table-fitViewVehicle"
+              >
+                <tbody id="viewUserVehicleDetailsDataTable">
+                  <!-- <tr>
+                  <th class="fw-bold p-3" scope="row">Parking Number</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">Vehicle Category</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">
+                    Vehicle Company name
+                  </th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">Registration Number</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">Owner name</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">
+                    Owner Contact Number
+                  </th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">In Time</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">Out Time</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">Remark</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">Status</th>
+                  <td>Example</td>
+                </tr>
+                <tr>
+                  <th class="fw-bold p-3" scope="row">Parking Fee</th>
+                  <td>Example</td>
+                </tr> -->
                 </tbody>
               </table>
             </div>
           </div>
 
-          <div class="row mw-100 mx-0 customFooterHeightVehicleManageCateogry">
-            <div
-              class="customColFooterDashboard bg-white mx-5 mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
-            >
-              <p class="customMarginFooterDashboard mt-3">
-                Vehicle Parking Management System
-              </p>
+          <div class="dashboard-background">
+            <div class="row customColVehicleAddCategory mw-100 ms-5 mb-5">
+              <div class="row mw-100 mx-0 p-0">
+                <div
+                  class="bg-white mt-5 px-5 py-4 pb-5 text-body-tertiary pene"
+                >
+                  <p class="customMarginFooterDashboard mt-3">
+                    Vehicle Parking Management System
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1530,7 +1684,7 @@
                     <th scope="row">Owner Contact Number</th>
                     <td>
                       <input
-                        type="text"
+                        type="number"
                         name="addVehicleOwnerContactNumber"
                         id="addVehicleOwnerContactNumber"
                         class="px-2 py-1 mb-4 border border-1 border-dark-subtle rounded-1 col-12"
@@ -2935,4 +3089,7 @@
   <script src="adminManageOutgoingVehicle.js" type="module"></script>
   <script src="viewDetailsVehicleOutgoing.js" type="module"></script>
   <script src="adminSearchVehicle.js" type="module"></script>
+  <script src="userLogin.js" type="module"></script>
+  <script src="userManageVehicles.js" type="module"></script>
+  <script src="viewDetailsUserVehicle.js" type="module"></script>
 </html>

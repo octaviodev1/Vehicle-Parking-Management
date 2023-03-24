@@ -152,6 +152,38 @@ const addVehicle = () => {
     vehicleToAdd.status = "Vehicle In";
     vehicleToAdd.inTime = inTime;
 
+    let ownerOfTheVehicle = {};
+    ownerOfTheVehicle.vehicleOwnerName = vehicleOwnerName.value;
+    ownerOfTheVehicle.vehicleOwnerContactNumber =
+      vehicleOwnerContactNumber.value;
+    fetch(
+      "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/ownersContactNumber.json",
+      {
+        method: "GET",
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => transformData(data))
+      .then((data) => {
+        let ownersData = data;
+        for (let i = 0; i < ownersData.length; i++) {
+          if (
+            ownerOfTheVehicle.vehicleOwnerContactNumber ==
+            ownersData[i].vehicleOwnerContactNumber
+          ) {
+            return;
+          } else {
+            fetch(
+              "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/ownersContactNumber.json",
+              {
+                method: "POST",
+                body: JSON.stringify(ownerOfTheVehicle),
+              }
+            );
+          }
+        }
+      });
+
     fetch(
       "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesIn.json",
       {
