@@ -1,6 +1,6 @@
 import { transformData } from "./adminLogin.js";
 import { updateManageVehicleCategoryTable } from "./adminVehicleManageCategory.js";
-
+import { updateSelectCategoryAddVehicle } from "./adminAddVehicle.js";
 // const updateCategory = () => {
 //   fetch(
 //     "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehicle-categories.json",
@@ -195,6 +195,7 @@ const updateCategory = () => {
               }
             ).then((resp) => {
               updateManageVehicleCategoryTable();
+              updateSelectCategoryAddVehicle();
               document.getElementById("btnToManageVehicleCategory").click();
               actualCategoryId = "";
             });

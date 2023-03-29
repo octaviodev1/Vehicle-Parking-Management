@@ -1,5 +1,7 @@
 import { transformData } from "./adminLogin.js";
 import { updateCategory } from "./adminUpdateCategory.js";
+import { updateSelectCategoryAddVehicle } from "./adminAddVehicle.js";
+import { updateDashboardEntries } from "./adminDashboard.js";
 
 const deleteCategory = () => {
   fetch(
@@ -37,6 +39,8 @@ const deleteCategory = () => {
               }
             ).then((resp) => {
               updateManageVehicleCategoryTable();
+              updateSelectCategoryAddVehicle();
+              updateDashboardEntries();
             });
           });
         } else {

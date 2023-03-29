@@ -18,38 +18,33 @@ const sigInUser = () => {
       );
       let userNameDashboard = document.getElementById("dashboardUserName");
 
+      let userMatch = ownersData.filter(
+        (ownersData) =>
+          ownersData.vehicleOwnerContactNumber == ownerContactNumber.value
+      );
       if (ownerContactNumber.value == null || ownerContactNumber.value == "") {
         errorOwnerContactNumber.classList.remove("hide");
         errorOwnerContactNumber.innerHTML = "Please enter a contact number.";
-      } else {
-        for (let i = 0; i < ownersData.length; i++) {
-          if (
-            ownerContactNumber.value == ownersData[i].vehicleOwnerContactNumber
-          ) {
-            let actualUser = {};
-            actualUser.name = ownersData[i].vehicleOwnerName;
-            actualUser.contactNumber = ownersData[i].vehicleOwnerContactNumber;
-            localStorage.setItem("loggedInUser", JSON.stringify(actualUser));
-            localStorage.setItem("loggedUser", true);
-            localStorage.setItem("loggedAdmin", false);
-            ownerContactNumber.value = "";
-            
-            let actualUserData = JSON.parse(
-              localStorage.getItem("loggedInUser")
-            );
+      } else if (userMatch.length === 1) {
+        let actualUser = {};
+        actualUser.name = userMatch[0].vehicleOwnerName;
+        actualUser.contactNumber = userMatch[0].vehicleOwnerContactNumber;
+        localStorage.setItem("loggedInUser", JSON.stringify(actualUser));
+        localStorage.setItem("loggedUser", true);
+        localStorage.setItem("loggedAdmin", false);
+        ownerContactNumber.value = "";
+        let actualUserData = JSON.parse(localStorage.getItem("loggedInUser"));
 
-            userNameDashboard.innerHTML = actualUserData.name;
-            updateUserVehicleTable();
-            document.getElementById("goToUserDashboard").click();
-            break;
-            // searchResultsContainer.classList.remove("hide");
-            // makeTableVehicleOutResultOfTheSearch(ownersData[i], i);
-          } else {
-            errorOwnerContactNumber.classList.remove("hide");
-            errorOwnerContactNumber.innerHTML =
-              "There is no vehicle linked to this number.";
-          }
-        }
+        userNameDashboard.innerHTML = actualUserData.name;
+        
+        errorOwnerContactNumber.classList.add("hide");
+        document.getElementById("goToUserDashboard").click();
+
+        updateUserVehicleTable();
+      } else {
+        errorOwnerContactNumber.classList.remove("hide");
+        errorOwnerContactNumber.innerHTML =
+          "There is no vehicle linked to this number.";
       }
     });
 };

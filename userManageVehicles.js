@@ -6,6 +6,15 @@ var userVehicles = [];
 const updateUserVehicleTable = () => {
   let actualUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
+  const checkUserTable = () => {
+    if (DataTable.isDataTable($("#userVehicleTable"))) {
+      $("#userVehicleTable").DataTable().destroy();
+      makeTableUserVehicle();
+    } else {
+      makeTableUserVehicle();
+    }
+  };
+
   const makeTableUserVehicle = () => {
     let temp = "";
     for (let i = 0; i < userVehicles.length; i++) {
@@ -62,14 +71,21 @@ const updateUserVehicleTable = () => {
     .then((data) => {
       let vehiclesIncoming = data;
 
-      for (let i = 0; i < vehiclesIncoming.length; i++) {
-        if (
-          actualUser.contactNumber ==
-          vehiclesIncoming[i].vehicleOwnerContactNumber
-        ) {
-          userVehicles.push(vehiclesIncoming[i]);
-        }
-      }
+      let userVehiclesIncomingMatch = vehiclesIncoming.filter(
+        (vehiclesIncoming) =>
+          vehiclesIncoming.vehicleOwnerContactNumber == actualUser.contactNumber
+      );
+
+      // console.log(userVehiclesMatch)
+
+      // for (let i = 0; i < vehiclesIncoming.length; i++) {
+      //   if (
+      //     actualUser.contactNumber ==
+      //     vehiclesIncoming[i].vehicleOwnerContactNumber
+      //   ) {
+      //     userVehicles.push(vehiclesIncoming[i]);
+      //   }
+      // }
 
       fetch(
         "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/vehiclesOut.json",
@@ -82,21 +98,27 @@ const updateUserVehicleTable = () => {
         .then((data) => {
           let vehiclesOutgoing = data;
 
-          for (let i = 0; i < vehiclesOutgoing.length; i++) {
-            if (
-              actualUser.contactNumber ==
-              vehiclesOutgoing[i].vehicleOwnerContactNumber
-            ) {
-              userVehicles.push(vehiclesOutgoing[i]);
+          let userVehiclesOutgoingMatch = vehiclesOutgoing.filter(
+            (vehiclesOutgoing) =>
+              vehiclesOutgoing.vehicleOwnerContactNumber ==
+              actualUser.contactNumber
+          );
 
-              if (DataTable.isDataTable($("#userVehicleTable"))) {
-                $("#userVehicleTable").DataTable().destroy();
-                makeTableUserVehicle();
-              } else {
-                makeTableUserVehicle();
-              }
-            }
-          }
+          userVehicles = userVehiclesIncomingMatch.concat(
+            userVehiclesOutgoingMatch
+          );
+          checkUserTable();
+
+          // console.log(userVehicles);
+          // for (let i = 0; i < vehiclesOutgoing.length; i++) {
+          //   if (
+          //     actualUser.contactNumber ==
+          //     vehiclesOutgoing[i].vehicleOwnerContactNumber
+          //   ) {
+          //     userVehicles.push(vehiclesOutgoing[i]);
+          //     checkUserTable();
+          //   }
+          // }
         });
     });
 };

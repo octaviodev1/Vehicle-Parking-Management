@@ -1,5 +1,6 @@
 import { transformData } from "./adminLogin.js";
 import { updateManageIncomingVehicleTable } from "./adminManageIncomingVehicle.js";
+import { updateDashboardEntries } from "./adminDashboard.js";
 
 const updateSelectCategoryAddVehicle = () => {
   fetch(
@@ -156,6 +157,7 @@ const addVehicle = () => {
     ownerOfTheVehicle.vehicleOwnerName = vehicleOwnerName.value;
     ownerOfTheVehicle.vehicleOwnerContactNumber =
       vehicleOwnerContactNumber.value;
+
     fetch(
       "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/ownersContactNumber.json",
       {
@@ -166,21 +168,23 @@ const addVehicle = () => {
       .then((data) => transformData(data))
       .then((data) => {
         let ownersData = data;
-        for (let i = 0; i < ownersData.length; i++) {
-          if (
-            ownerOfTheVehicle.vehicleOwnerContactNumber ==
-            ownersData[i].vehicleOwnerContactNumber
-          ) {
-            return;
-          } else {
-            fetch(
-              "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/ownersContactNumber.json",
-              {
-                method: "POST",
-                body: JSON.stringify(ownerOfTheVehicle),
-              }
-            );
-          }
+
+        let contactNumberMatch = ownersData.filter(
+          (ownersData) =>
+            ownersData.vehicleOwnerContactNumber ==
+            ownerOfTheVehicle.vehicleOwnerContactNumber
+        );
+
+        if (contactNumberMatch.length >= 1) {
+          return;
+        } else {
+          fetch(
+            "https://vehicleparkingmanagement-default-rtdb.europe-west1.firebasedatabase.app/ownersContactNumber.json",
+            {
+              method: "POST",
+              body: JSON.stringify(ownerOfTheVehicle),
+            }
+          );
         }
       });
 
@@ -196,6 +200,7 @@ const addVehicle = () => {
       vehicleOwnerName.value = "";
       vehicleOwnerContactNumber.value = "";
       updateManageIncomingVehicleTable();
+      updateDashboardEntries();
       document.getElementById("btn-goToManageInVehicle").click();
     });
   }

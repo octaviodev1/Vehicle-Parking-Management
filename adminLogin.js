@@ -2,6 +2,7 @@ import { updateManageVehicleCategoryTable } from "./adminVehicleManageCategory.j
 import { updateSelectCategoryAddVehicle } from "./adminAddVehicle.js";
 import { updateManageIncomingVehicleTable } from "./adminManageIncomingVehicle.js";
 import { updateManageOutgoingVehicleTable } from "./adminManageOutgoingVehicle.js";
+import { updateDashboardEntries } from "./adminDashboard.js";
 
 const sigInAdminBtn = document.getElementById("signIn-adminLogin");
 
@@ -82,6 +83,7 @@ const sigInAdmin = () => {
           adminUser.value = "";
           adminPassword.value = "";
           document.getElementById("btnToDashboardAdmin").click();
+          updateDashboardEntries();
           updateManageVehicleCategoryTable();
           updateSelectCategoryAddVehicle();
           updateManageIncomingVehicleTable();
